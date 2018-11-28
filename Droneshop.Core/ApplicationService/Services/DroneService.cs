@@ -8,7 +8,7 @@ namespace Droneshop.Core.ApplicationService.Services
 {
     public class DroneService : IDroneService
     {
-        public readonly IDroneRepository _droneRepo;
+        private readonly IDroneRepository _droneRepo;
 
         public DroneService(IDroneRepository repo)
         {
@@ -17,15 +17,7 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Drone Create(Drone drone)
         {
-            try
-            {
-                ValidateData(drone);
-            }
-
-            catch(Exception e)
-            {
-                throw;
-            }
+            ValidateData(drone);
             return _droneRepo.Create(drone);
         }
 

@@ -39,7 +39,7 @@ namespace DroneShop.RestApi.Controllers
         {
             try
             {
-                return _droneService.Create(drone);
+                return Ok(_droneService.Create(drone));
             }
             catch(Exception e)
             {
