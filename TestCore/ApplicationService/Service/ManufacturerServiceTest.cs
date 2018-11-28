@@ -71,5 +71,21 @@ namespace TestCore
             
             Assert.Equal("The items per page and current page have to be positive numbers", e.Message);
         }
+
+        [Fact]
+        public void CreateManufacturerWithoutNameThrowsException()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+            
+            var manufacturer = new Manufacturer()
+            {
+                Id = 1,
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => manufacturerService.Create(manufacturer));
+            
+            Assert.Equal("Name cannot be null or empty", e.Message);
+        }
     }
 }
