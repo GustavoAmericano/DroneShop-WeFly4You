@@ -20,11 +20,8 @@ namespace TestCore
             IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
 
             var isCalled = false;
-            var filter = new Filter()
-            {
-                ItemsPerPage = 0,
-                CurrentPage = 0,
-            };
+            var filter = new Filter();
+
 
             manufacturerRepo.Setup(x => x.GetAllManufacturers(filter)).Callback(() => isCalled = true).Returns(new List<Manufacturer>()
             {
