@@ -20,8 +20,13 @@ namespace TestCore
             IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
 
             var isCalled = false;
+            var filter = new Filter()
+            {
+                ItemsPerPage = 0,
+                CurrentPage = 0,
+            };
 
-            manufacturerRepo.Setup(x => x.GetAllManufacturers(It.IsAny<Filter>())).Callback(() => isCalled = true).Returns(new List<Manufacturer>()
+            manufacturerRepo.Setup(x => x.GetAllManufacturers(filter)).Callback(() => isCalled = true).Returns(new List<Manufacturer>()
             {
                 new Manufacturer()
                 {
@@ -31,7 +36,7 @@ namespace TestCore
                 }
             });
 
-            manufacturerService.GetAllManufacturers(It.IsAny<Filter>());
+            manufacturerService.GetAllManufacturers(filter);
             
             Assert.True(isCalled);
         }
@@ -69,8 +74,5 @@ namespace TestCore
             
             Assert.Equal("The items per page and current page have to be positive numbers", e.Message);
         }
-        
-        
-
     }
 }
