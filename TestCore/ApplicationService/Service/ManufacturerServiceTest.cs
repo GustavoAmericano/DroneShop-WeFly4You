@@ -11,8 +11,8 @@ namespace TestCore
 {
     public class ManufacturerServiceTest
     {
-        
-         
+
+        #region GetAllManufacturers
         [Fact]
         public void GetAllManufacturersEnsureRepositoryIsCalled()
         {
@@ -72,6 +72,9 @@ namespace TestCore
             Assert.Equal("The items per page and current page have to be positive numbers", e.Message);
         }
 
+        #endregion
+
+        #region CreateManufacturer
         [Fact]
         public void CreateManufacturerWithoutNameThrowsException()
         {
@@ -109,7 +112,9 @@ namespace TestCore
             
             Assert.True(isCalled);
         }
+        #endregion
 
+        #region ReadManufacturerById
         [Fact]
         public void ReadManufacturerByIdEnsureRepositoryIsCalled()
         {
@@ -167,5 +172,69 @@ namespace TestCore
             
             Assert.Equal("Could not find any manufacturer with the entered id", e.Message);
         }
+        #endregion
+
+        #region DeleteManufacturer
+        [Fact]
+        public void DeleteManufacturerEnsureRepositoryIsCalled()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+            var isCalled = false;
+            var man = new Manufacturer()
+            {
+                Id = 1,
+                Name = "TestMan",
+                Drones = null
+            };
+
+            manufacturerRepo.Setup(x => x.Delete(man.Id)).Callback(() => isCalled = true).Returns(new Manufacturer()
+            {
+                Id = 1,
+                Name = "TestMan",
+                Drones = null
+            });
+
+            manufacturerService.Delete(man.Id);
+            Assert.True(isCalled);
+        }
+
+        [Fact]
+        public void DeleteManufacturerWithIdLowerThan1ThrowsException()
+        {
+           var manufacturerRepo = new Mock<IManufacturerRepository>();
+           IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+           var manufacturer = new Manufacturer()
+           {
+               Id = 0,
+               Name = "TestMan"
+           };
+
+           var e = Assert.Throws<ArgumentException>(() => manufacturerService.Delete(manufacturer.Id));
+
+           Assert.Equal("The Id entered has to be at least 1", e.Message);
+        }
+
+        [Fact]
+        public void DeleteManufacturerWithNoManufacturerFoundThrowsException()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+            var manufacturer = new Manufacturer()
+            {
+                Id = 1,
+                Name = "TestMan",                
+            };
+
+            manufacturerRepo.Setup(x => x.ReadById(manufacturer.Id)).Returns(() => manufacturer = null);
+
+            var e = Assert.Throws<ArgumentException>(() => manufacturerService.Delete(manufacturer.Id));
+
+            Assert.Equal("Could not find any manufacturer with the entered id", e.Message);
+        }
+        #endregion
     }
 }

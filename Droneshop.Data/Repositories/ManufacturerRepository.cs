@@ -39,7 +39,9 @@ namespace Droneshop.Data.Repositories
 
         public Manufacturer Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var manuRemoved = _ctx.Remove(new Manufacturer { Id = id }).Entity;
+            _ctx.SaveChanges();
+            return manuRemoved;
         }
 
         public Manufacturer Update(Manufacturer manufacturer)

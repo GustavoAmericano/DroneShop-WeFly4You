@@ -50,7 +50,16 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Manufacturer Delete(int id)
         {
-            throw new System.NotImplementedException();
+            if (id < 1)
+            {
+                throw new ArgumentException("The Id entered has to be at least 1");
+            }
+            if (_manufacturerRepository.Delete(id) == null)
+            {
+                throw new ArgumentException("Could not find any manufacturer with the entered id");
+            }
+
+            return _manufacturerRepository.Delete(id);
         }
 
         public Manufacturer Update(Manufacturer manufacturer)
