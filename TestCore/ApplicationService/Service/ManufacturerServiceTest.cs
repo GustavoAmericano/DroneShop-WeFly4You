@@ -95,7 +95,6 @@ namespace TestCore
             IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
 
             var isCalled = false;
-            var filter = new Filter();
             
             var manufacturer = new Manufacturer()
             {
@@ -110,5 +109,46 @@ namespace TestCore
             
             Assert.True(isCalled);
         }
+
+        [Fact]
+        public void ReadManufacturerByIdEnsureRepositoryIsCalled()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+            var isCalled = false;
+            
+            var manufacturer = new Manufacturer()
+            {
+                Id = 1,
+                Name = "Phantom"
+            };
+
+
+            manufacturerRepo.Setup(x => x.ReadById(manufacturer.Id)).Callback(() => isCalled = true).Returns(manufacturer);
+
+            manufacturerService.ReadById(manufacturer.Id);
+            
+            Assert.True(isCalled);
+        }
+
+        [Fact]
+        public void ReadManufacturerByIdWithIdLowerThan1ThrowsException()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+            
+            var manufacturer = new Manufacturer()
+            {
+                Id = 0,
+                Name = "Phantom"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => manufacturerService.ReadById(manufacturer.Id));
+            
+            Assert.Equal("The Id entered has to be at least 1", e.Message);
+        }
+
+        
     }
 }
