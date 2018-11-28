@@ -6,7 +6,7 @@ namespace Droneshop.Data.Repositories
 {
     public class ManufacturerRepository : IManufacturerRepository
     {
-        public List<Manufacturer> GetAllDrones(Filter filter)
+        public List<Manufacturer> GetAllManufacturers(Filter filter)
         {
             throw new System.NotImplementedException();
         }
