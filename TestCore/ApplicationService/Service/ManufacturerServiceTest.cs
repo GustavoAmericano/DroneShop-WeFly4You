@@ -36,6 +36,40 @@ namespace TestCore
             Assert.True(isCalled);
         }
 
+        [Fact]
+        public void GetAllManufacturersWithItemsPerPageIsNegativeThrowsException()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+            
+            var filter = new Filter()
+            {
+                ItemsPerPage = -1,
+                CurrentPage = 1,
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => manufacturerService.GetAllManufacturers(filter));
+            
+            Assert.Equal("The items per page and current page have to be positive numbers", e.Message);
+        }
+        
+        [Fact]
+        public void GetAllManufacturersWithCurrentPageIsNegativeThrowsException()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+            
+            var filter = new Filter()
+            {
+                ItemsPerPage = 1,
+                CurrentPage = -1,
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => manufacturerService.GetAllManufacturers(filter));
+            
+            Assert.Equal("The items per page and current page have to be positive numbers", e.Message);
+        }
+        
         
 
     }
