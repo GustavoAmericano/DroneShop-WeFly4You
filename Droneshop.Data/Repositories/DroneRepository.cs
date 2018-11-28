@@ -8,9 +8,19 @@ namespace Droneshop.Data.Repositories
 {
     public class DroneRepository : IDroneRepository
     {
+        public readonly DroneShopContext _ctx;
+
+        public DroneRepository(DroneShopContext ctx)
+        {
+            _ctx = ctx;
+        }
+
         public Drone Create(Drone drone)
         {
-            throw new NotImplementedException();
+            _ctx.Attach(drone).State = Microsoft.EntityFrameworkCore.EntityState.Added;
+            _ctx.SaveChanges();
+
+            return drone;
         }
 
         public Drone Delete(int id)
