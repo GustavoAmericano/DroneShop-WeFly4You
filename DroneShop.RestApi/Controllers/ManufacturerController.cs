@@ -33,6 +33,21 @@ namespace DroneShop.RestApi.Controllers
             }
         }
         
+        // GET api/values/1
+        [HttpGet("{id}")]
+        public ActionResult<Manufacturer> Get(int id)
+        {
+            try
+            {
+                return Ok(_manufacturerService.ReadById(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
+        }
+        
         // POST api/values
         [HttpPost]
         public ActionResult<Manufacturer> Post([FromBody] Manufacturer manufacturer)
