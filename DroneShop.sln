@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Droneshop.Core.Entity", "Droneshop.Core.Entity\Droneshop.Core.Entity.csproj", "{DFCB5BF3-0472-46D2-A61A-E85DA0CAA64E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Droneshop.Core", "Droneshop.Core\Droneshop.Core.csproj", "{9E100AA5-F9AA-40C2-87A6-B51FE07DD63B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{59382DFF-EBE7-4128-97A5-42201EC39E2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DBCB7C3A-0CC0-4DCD-9461-2682B0CE1065}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Droneshop.Data", "Droneshop.Data\Droneshop.Data.csproj", "{D2232F2F-1097-4A51-8FB1-309FC4A4B154}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{C3E86060-7087-4702-B014-B13BFB3CB66C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneShop.RestApi", "DroneShop.RestApi\DroneShop.RestApi.csproj", "{A18AB633-4F92-4EC1-9665-251681DD6592}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFCB5BF3-0472-46D2-A61A-E85DA0CAA64E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCB5BF3-0472-46D2-A61A-E85DA0CAA64E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCB5BF3-0472-46D2-A61A-E85DA0CAA64E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCB5BF3-0472-46D2-A61A-E85DA0CAA64E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E100AA5-F9AA-40C2-87A6-B51FE07DD63B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E100AA5-F9AA-40C2-87A6-B51FE07DD63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E100AA5-F9AA-40C2-87A6-B51FE07DD63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E100AA5-F9AA-40C2-87A6-B51FE07DD63B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2232F2F-1097-4A51-8FB1-309FC4A4B154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2232F2F-1097-4A51-8FB1-309FC4A4B154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2232F2F-1097-4A51-8FB1-309FC4A4B154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2232F2F-1097-4A51-8FB1-309FC4A4B154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A18AB633-4F92-4EC1-9665-251681DD6592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A18AB633-4F92-4EC1-9665-251681DD6592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A18AB633-4F92-4EC1-9665-251681DD6592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A18AB633-4F92-4EC1-9665-251681DD6592}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DFCB5BF3-0472-46D2-A61A-E85DA0CAA64E} = {59382DFF-EBE7-4128-97A5-42201EC39E2A}
+		{9E100AA5-F9AA-40C2-87A6-B51FE07DD63B} = {59382DFF-EBE7-4128-97A5-42201EC39E2A}
+		{D2232F2F-1097-4A51-8FB1-309FC4A4B154} = {DBCB7C3A-0CC0-4DCD-9461-2682B0CE1065}
+		{A18AB633-4F92-4EC1-9665-251681DD6592} = {C3E86060-7087-4702-B014-B13BFB3CB66C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE289D6E-46D2-48A1-97C9-6A99251651A2}
+	EndGlobalSection
+EndGlobal
