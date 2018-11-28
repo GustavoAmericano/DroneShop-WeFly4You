@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
 
@@ -13,9 +14,9 @@ namespace Droneshop.Core.ApplicationService.Services
             _manufacturerRepository = manufacturerRepository;
         }
 
-        public List<Manufacturer> GetAllManufacturers()
+        public List<Manufacturer> GetAllManufacturers(Filter filter)
         {
-            throw new System.NotImplementedException();
+            return _manufacturerRepository.GetAllManufacturers(filter).ToList();
         }
 
         public Manufacturer Create(Manufacturer manufacturer)

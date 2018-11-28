@@ -5,7 +5,7 @@ namespace Droneshop.Core.ApplicationService
 {
     public interface IManufacturerService
     {
-        List<Manufacturer> GetAllManufacturers();
+        List<Manufacturer> GetAllManufacturers(Filter filter);
         Manufacturer Create(Manufacturer manufacturer);
         Manufacturer ReadById(int id);
         Manufacturer Delete(int id);

@@ -12,8 +12,7 @@ namespace TestCore
     public class ManufacturerServiceTest
     {
         
-        
-        
+         
         [Fact]
         public void GetAllManufacturersEnsureRepositoryIsCalled()
         {
@@ -22,12 +21,22 @@ namespace TestCore
 
             var isCalled = false;
 
-            manufacturerRepo.Setup(x => x.GetAllManufacturers(It.IsAny<Filter>())).Callback(() => isCalled = true);
+            manufacturerRepo.Setup(x => x.GetAllManufacturers(It.IsAny<Filter>())).Callback(() => isCalled = true).Returns(new List<Manufacturer>()
+            {
+                new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Test",
+                    Drones = null                   
+                }
+            });
 
-            manufacturerService.GetAllManufacturers();
+            manufacturerService.GetAllManufacturers(It.IsAny<Filter>());
             
             Assert.True(isCalled);
-
         }
+
+        
+
     }
 }
