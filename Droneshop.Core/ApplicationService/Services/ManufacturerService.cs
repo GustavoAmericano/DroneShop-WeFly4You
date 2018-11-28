@@ -36,7 +36,11 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Manufacturer ReadById(int id)
         {
-            throw new System.NotImplementedException();
+            if (id < 1)
+            {
+                throw new ArgumentException("The Id entered has to be at least 1");
+            }
+            return _manufacturerRepository.ReadById(id);
         }
 
         public Manufacturer Delete(int id)
