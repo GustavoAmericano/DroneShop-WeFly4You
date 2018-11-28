@@ -26,7 +26,12 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Manufacturer Create(Manufacturer manufacturer)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(manufacturer.Name))
+            {
+                throw new ArgumentException("Name cannot be null or empty");
+            }
+
+            return _manufacturerRepository.Create(manufacturer);
         }
 
         public Manufacturer ReadById(int id)
