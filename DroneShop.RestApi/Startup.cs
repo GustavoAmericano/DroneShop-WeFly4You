@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Droneshop.Core.ApplicationService;
+using Droneshop.Core.ApplicationService.Services;
+using Droneshop.Core.DomainService;
+using Droneshop.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +30,10 @@ namespace DroneShop.RestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<IDroneRepository, DroneRepository>();
+            services.AddScoped<IDroneService, DroneService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

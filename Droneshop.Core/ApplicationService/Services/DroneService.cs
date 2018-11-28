@@ -17,7 +17,7 @@ namespace Droneshop.Core.ApplicationService.Services
             throw new NotImplementedException();
         }
 
-        public List<Drone> getAllDrones()
+        public List<Drone> GetAllDrones()
         {
             throw new NotImplementedException();
         }

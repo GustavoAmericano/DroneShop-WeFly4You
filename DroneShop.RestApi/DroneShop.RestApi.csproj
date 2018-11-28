@@ -10,6 +10,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection">
+      <Version>2.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Droneshop.Core\Droneshop.Core.csproj" />
+    <ProjectReference Include="..\Droneshop.Data\Droneshop.Data.csproj" />
   </ItemGroup>
 
 </Project>

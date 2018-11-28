@@ -18,7 +18,7 @@ namespace Droneshop.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public List<Drone> getAllDrones()
+        public List<Drone> GetAllDrones(Filter filter)
         {
             throw new NotImplementedException();
         }
