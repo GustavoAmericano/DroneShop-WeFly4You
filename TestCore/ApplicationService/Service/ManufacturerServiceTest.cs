@@ -80,12 +80,35 @@ namespace TestCore
             
             var manufacturer = new Manufacturer()
             {
-                Id = 1,
+                Id = 1
             };
 
             var e = Assert.Throws<ArgumentException>(() => manufacturerService.Create(manufacturer));
             
             Assert.Equal("Name cannot be null or empty", e.Message);
+        }
+
+        [Fact]
+        public void CreateManufacturerEnsureRepositoryIsCalled()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+            var isCalled = false;
+            var filter = new Filter();
+            
+            var manufacturer = new Manufacturer()
+            {
+                Id = 1,
+                Name = "Phantom"
+            };
+
+
+            manufacturerRepo.Setup(x => x.Create(manufacturer)).Callback(() => isCalled = true).Returns(manufacturer);
+
+            manufacturerService.Create(manufacturer);
+            
+            Assert.True(isCalled);
         }
     }
 }
