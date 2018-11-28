@@ -13,5 +13,6 @@ namespace Droneshop.Core.Entity
         public string Details { get; set; }
         public string ImageURL { get; set; }
         public string AnotherProperty { get; set; }
+        public string Test { get; set; }
     }
 }
