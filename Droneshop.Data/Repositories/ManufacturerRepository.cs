@@ -34,7 +34,7 @@ namespace Droneshop.Data.Repositories
 
         public Manufacturer ReadById(int id)
         {
-            throw new System.NotImplementedException();
+            return _ctx.Manufacturers.Include(m => m.Drones).FirstOrDefault(m => m.Id == id);
         }
 
         public Manufacturer Delete(int id)
