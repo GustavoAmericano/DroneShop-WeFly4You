@@ -8,10 +8,9 @@ namespace Droneshop.Core.Entity
     {
         public int Id { get; set; }
         public Manufacturer Manufacturer  { get; set; }
-        public string Model { get; set; }
+        public string ProductName { get; set; }
         public double Price { get; set; }
         public string Details { get; set; }
         public string ImageURL { get; set; }
-        public string AnotherProperty { get; set; }
     }
 }
