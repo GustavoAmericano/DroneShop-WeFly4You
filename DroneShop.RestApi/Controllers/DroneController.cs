@@ -2,14 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Droneshop.Core.ApplicationService;
+using Droneshop.Core.Entity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DroneShop.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class DroneController : ControllerBase
     {
+        public readonly IDroneService _droneService;
+
+        public DroneController(IDroneService droneService)
+        {
+            _droneService = droneService;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -26,8 +35,17 @@ namespace DroneShop.RestApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<Drone> Post([FromBody] Drone drone)
         {
+            try
+            {
+                return _droneService.Create(drone);
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
         }
 
         // PUT api/values/5
