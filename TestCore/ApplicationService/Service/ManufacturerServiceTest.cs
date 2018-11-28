@@ -236,5 +236,49 @@ namespace TestCore
             Assert.Equal("Could not find any manufacturer with the entered id", e.Message);
         }
         #endregion
+
+        #region UpdateManufacturer
+        [Fact]
+        public void UpdateManufacturerEnsureRepositoryIsCalled()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+            var isCalled = false;
+            var man = new Manufacturer()
+            {
+                Id = 1,
+                Name = "TestMan",
+                Drones = null
+            };
+
+            manufacturerRepo.Setup(x => x.Update(man)).Callback(() => isCalled = true).Returns(new Manufacturer()
+            {
+                Id = 1,
+                Name = "TestMan",
+                Drones = null
+            });
+
+            manufacturerService.Update(man);
+            Assert.True(isCalled);
+        }
+
+        [Fact]
+        public void UpdateManufacturerWithoutNameExeption()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+            var man = new Manufacturer()
+            {
+                Id = 1,
+                //Name = "TestMan" 
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => manufacturerService.Update(man));
+
+            Assert.Equal("Name cannot be null or empty", e.Message);
+        }
+        #endregion
     }
 }

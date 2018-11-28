@@ -66,7 +66,17 @@ namespace DroneShop.RestApi.Controllers
         [HttpPut("{id}")]
         public ActionResult<Manufacturer> Put(int id, [FromBody] Manufacturer manufacturer)
         {
-            return null;
+            
+            try
+            {
+                manufacturer.Id = id;
+                return Ok(_manufacturerService.Update(manufacturer));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
 
         // DELETE api/values/5

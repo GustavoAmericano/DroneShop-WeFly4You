@@ -46,7 +46,19 @@ namespace Droneshop.Data.Repositories
 
         public Manufacturer Update(Manufacturer manufacturer)
         {
-            throw new System.NotImplementedException();
+            _ctx.Attach(manufacturer).State = EntityState.Modified;
+            _ctx.Entry(manufacturer).Collection(m => m.Drones).IsModified = true;
+
+            var drones = _ctx.Drones.Where(d => d.Manufacturer.Id == manufacturer.Id && !manufacturer.Drones.Exists(dm => dm.Id == d.Id));
+
+            foreach (var drone in drones)
+            {
+                drone.Manufacturer = null;
+                _ctx.Entry(drone).Reference(d => d.Manufacturer).IsModified = true;
+            }
+
+            _ctx.SaveChanges();
+            return manufacturer;
         }
     }
 }
