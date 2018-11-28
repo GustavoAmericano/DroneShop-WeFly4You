@@ -17,9 +17,15 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Drone Create(Drone drone)
         {
+            try
+            {
+                ValidateData(drone);
+            }
 
-            ValidateData(drone);
-
+            catch(Exception e)
+            {
+                throw;
+            }
             return _droneRepo.Create(drone);
         }
 
