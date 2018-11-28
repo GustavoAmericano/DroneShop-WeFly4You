@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Droneshop.Core.DomainService;
@@ -16,6 +17,10 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public List<Manufacturer> GetAllManufacturers(Filter filter)
         {
+            if (filter.ItemsPerPage < 0 || filter.CurrentPage < 0)
+            {
+                throw new ArgumentException("The items per page and current page have to be positive numbers");
+            }
             return _manufacturerRepository.GetAllManufacturers(filter).ToList();
         }
 
