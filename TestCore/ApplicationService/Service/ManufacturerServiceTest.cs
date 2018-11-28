@@ -149,6 +149,23 @@ namespace TestCore
             Assert.Equal("The Id entered has to be at least 1", e.Message);
         }
 
-        
+        [Fact]
+        public void ReadManufacturerByIdWithNoManufacturerFoundThrowsException()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+            
+            var manufacturer = new Manufacturer()
+            {
+                Id = 1,
+                Name = "Phantom"
+            };
+
+            manufacturerRepo.Setup(x => x.ReadById(manufacturer.Id)).Returns(() => manufacturer = null);
+            
+            var e = Assert.Throws<ArgumentException>(() => manufacturerService.ReadById(manufacturer.Id));
+            
+            Assert.Equal("Could not find any manufacturer with the entered id", e.Message);
+        }
     }
 }
