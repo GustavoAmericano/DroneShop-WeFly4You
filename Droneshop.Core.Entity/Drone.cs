@@ -12,5 +12,6 @@ namespace Droneshop.Core.Entity
         public double Price { get; set; }
         public string Details { get; set; }
         public string ImageURL { get; set; }
+        public string AnotherProperty { get; set; }
     }
 }
