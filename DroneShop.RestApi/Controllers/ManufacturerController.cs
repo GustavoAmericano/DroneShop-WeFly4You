@@ -32,5 +32,22 @@ namespace DroneShop.RestApi.Controllers
                 return BadRequest(e.Message);
             }
         }
+        
+        // POST api/values
+        [HttpPost]
+        public ActionResult<Manufacturer> Post([FromBody] Manufacturer manufacturer)
+        {
+            try
+            {
+                return _manufacturerService.Create(manufacturer);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
+        }
+        
+        
     }
 }
