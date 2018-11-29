@@ -50,6 +50,36 @@ namespace Droneshop.Data
                 Model = "Matrice 600",
                 Price = 32000
             }).Entity;
+            
+            var drone4 = ctx.Drones.Add(new Drone()
+            {
+                Id = 4,
+                Details = "Another drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
+                Manufacturer = manufacturer1,
+                Model = "Mavic 2 Pro",
+                Price = 11499
+            }).Entity;
+            
+            var drone5 = ctx.Drones.Add(new Drone()
+            {
+                Id = 5,
+                Details = "Another drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
+                Manufacturer = manufacturer1,
+                Model = "Inspire 2 Cinema Pro",
+                Price = 151499
+            }).Entity;
+            
+            var drone6 = ctx.Drones.Add(new Drone()
+            {
+                Id = 6,
+                Details = "Another drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
+                Manufacturer = manufacturer2,
+                Model = "Inspire 2 Professional",
+                Price = 52499
+            }).Entity;
 
             ctx.SaveChanges();
         }
