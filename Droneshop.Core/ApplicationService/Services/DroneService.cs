@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
@@ -34,9 +35,13 @@ namespace Droneshop.Core.ApplicationService.Services
             throw new NotImplementedException();
         }
 
-        public List<Drone> GetAllDrones()
+        public List<Drone> GetAllDrones(Filter filter)
         {
-            throw new NotImplementedException();
+            if(filter.ItemsPerPage < 0 || filter.CurrentPage < 0)
+            {
+                throw new ArgumentException("The items per page and current page have to be positive numbers");
+            }
+            return _droneRepo.GetAllDrones(filter).ToList();
         }
 
         public Drone ReadById(int id)

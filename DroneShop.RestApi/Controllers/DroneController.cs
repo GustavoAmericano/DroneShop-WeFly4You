@@ -21,9 +21,18 @@ namespace DroneShop.RestApi.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<Drone>> Get(Filter filter)
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(_droneService.GetAllDrones(filter));
+            }
+
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+            
         }
 
         // GET api/values/5
