@@ -74,6 +74,9 @@ namespace DroneShop.RestApi
                 app.UseHsts();
             }
 
+            //Enable CORS
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }

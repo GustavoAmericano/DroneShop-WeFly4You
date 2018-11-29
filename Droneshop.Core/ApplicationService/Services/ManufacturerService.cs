@@ -41,13 +41,13 @@ namespace Droneshop.Core.ApplicationService.Services
                 throw new ArgumentException("The Id entered has to be at least 1");
             }
 
-            var petFound = _manufacturerRepository.ReadById(id);
+            var manufacturerFound = _manufacturerRepository.ReadById(id);
             
-            if ( petFound == null)
+            if (manufacturerFound == null)
             {
                 throw new ArgumentException("Could not find any manufacturer with the entered id");
             }
-            return petFound;
+            return manufacturerFound;
         }
 
         public Manufacturer Delete(int id)
