@@ -7,7 +7,7 @@ namespace Droneshop.Core.DomainService
 {
     public interface IDroneRepository
     {
-        List<Drone> GetAllDrones(Filter filter = null);
+        IEnumerable<Drone> GetAllDrones(Filter filter = null);
         Drone Create(Drone drone);
         Drone ReadById(int id);
         Drone Delete(int id);

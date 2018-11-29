@@ -12,6 +12,80 @@ namespace TestCore
     public class DroneServiceTest
     {
 
+        [Fact]
+        public void ReadAllDronesEnsureRepositoryIsCalled()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService service = new DroneService(droneRepo.Object);
+
+            var isCalled = false;
+            var filter = new Filter();
+
+            droneRepo.Setup(x => x.GetAllDrones(filter)).Callback(() => isCalled = true).Returns(new List<Drone>()
+            {
+                 new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+
+            }
+
+            });
+
+            service.GetAllDrones(filter);
+            Assert.True(isCalled);
+
+        }
+
+
+
+        [Fact]
+        public void CreateDroneEnsureRepositoryIsCalled()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService service = new DroneService(droneRepo.Object);
+
+            var isCalled = false;
+
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+
+            };
+
+            droneRepo.Setup(x => x.Create(drone)).Callback(() => isCalled = true).Returns(drone);
+
+            service.Create(drone);
+
+            Assert.True(isCalled);
+
+        }
+
         //Testing whether or not an exception will be thrown if manufacturer = null
         [Fact]
         public void CreateDroneNoManufacturerException()
