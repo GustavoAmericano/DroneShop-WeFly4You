@@ -216,25 +216,6 @@ namespace TestCore
 
            Assert.Equal("The Id entered has to be at least 1", e.Message);
         }
-
-        [Fact]
-        public void DeleteManufacturerWithNoManufacturerFoundThrowsException()
-        {
-            var manufacturerRepo = new Mock<IManufacturerRepository>();
-            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
-
-            var manufacturer = new Manufacturer()
-            {
-                Id = 1,
-                Name = "TestMan",                
-            };
-
-            manufacturerRepo.Setup(x => x.ReadById(manufacturer.Id)).Returns(() => manufacturer = null);
-
-            var e = Assert.Throws<ArgumentException>(() => manufacturerService.Delete(manufacturer.Id));
-
-            Assert.Equal("Could not find any manufacturer with the entered id", e.Message);
-        }
         #endregion
 
         #region UpdateManufacturer

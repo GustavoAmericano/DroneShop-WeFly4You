@@ -519,37 +519,6 @@ namespace TestCore
 
             Assert.Equal("The Id entered has to be at least 1", e.Message);
         }
-
-        [Fact]
-        public void DeleteDroneWithNoDroneFoundThrowsException()
-        {
-            var droneRepo = new Mock<IDroneRepository>();
-            IDroneService droneService = new DroneService(droneRepo.Object);
-
-            var drone = new Drone()
-            {
-                Id = 1,
-                Manufacturer = new Manufacturer()
-                {
-                    Id = 1,
-                    Name = "Phantom",
-                    Drones = new List<Drone>()
-                    {
-                        new Drone()
-                    }
-                },
-                Model = "B15",
-                Price = 500,
-                Details = "Handsome",
-                ImageURL = "www.imgUrl.com"
-            };
-
-            droneRepo.Setup(x => x.ReadById(drone.Id)).Returns(() => drone = null);
-
-            var e = Assert.Throws<ArgumentException>(() => droneService.Delete(drone.Id));
-
-            Assert.Equal("Could not find any drones with the entered id", e.Message);
-        }
         #endregion
 
         #region ReadDroneById
