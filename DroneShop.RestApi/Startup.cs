@@ -24,16 +24,24 @@ namespace DroneShop.RestApi
         private IConfiguration _conf { get; }
         private IHostingEnvironment _env { get; set; }
         
-        public Startup(IConfiguration conf, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
-            _conf = conf;
+
             _env = env;
-           
+            var builder = new ConfigurationBuilder()
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+            .AddEnvironmentVariables();
+            _conf = builder.Build();
+
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors();
 
             if (_env.IsDevelopment())
             {

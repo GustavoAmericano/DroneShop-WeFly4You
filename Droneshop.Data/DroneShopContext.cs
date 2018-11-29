@@ -16,8 +16,7 @@ namespace Droneshop.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Drone>().HasOne(d => d.Manufacturer).WithMany(m => m.Drones)
-                .OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<Drone>().HasOne(d => d.Manufacturer).WithMany(m => m.Drones).OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
