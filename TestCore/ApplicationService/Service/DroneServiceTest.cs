@@ -552,5 +552,116 @@ namespace TestCore
         }
         #endregion
 
+        #region ReadDroneById
+        [Fact]
+        public void ReadDroneByIdEnsureRepositoryIsCalled()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var isCalled = false;
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            };
+
+            droneRepo.Setup(x => x.ReadById(drone.Id)).Callback(() => isCalled = true).Returns(new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            });
+
+            droneService.ReadById(drone.Id);
+            Assert.True(isCalled);
+        }
+
+        [Fact]
+        public void ReadDroneByIdWithIdLowerThan1ThrowsException()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var drone = new Drone()
+            {
+                Id = 0,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => droneService.ReadById(drone.Id));
+
+            Assert.Equal("The Id entered has to be at least 1", e.Message);
+        }
+
+        [Fact]
+        public void ReadDroneByIdWithNoDroneFoundThrowsException()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            };
+
+            droneRepo.Setup(x => x.ReadById(drone.Id)).Returns(() => drone = null);
+
+            var e = Assert.Throws<ArgumentException>(() => droneService.ReadById(drone.Id));
+
+            Assert.Equal("Could not find any drones with the entered id", e.Message);
+        }
+        #endregion
+
+
+
     }
 }

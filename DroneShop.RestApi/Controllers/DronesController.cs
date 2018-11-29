@@ -37,9 +37,17 @@ namespace DroneShop.RestApi.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<Drone> Get(int id)
         {
-            return "value";
+            try
+            {
+                return Ok(_droneService.ReadById(id));
+            }
+
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         // POST api/values

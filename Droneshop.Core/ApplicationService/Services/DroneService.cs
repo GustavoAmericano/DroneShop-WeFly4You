@@ -48,7 +48,19 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Drone ReadById(int id)
         {
-            throw new NotImplementedException();
+            if (id < 1)
+            {
+                throw new ArgumentException("The Id entered has to be at least 1");
+            }
+
+            var droneFound = _droneRepo.ReadById(id);
+
+            if (droneFound == null)
+            {
+                throw new ArgumentException("Could not find any drones with the entered id");
+            }
+
+            return droneFound;
         }
 
         public Drone Update(Drone droneUpdate)

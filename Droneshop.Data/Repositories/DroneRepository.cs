@@ -44,7 +44,7 @@ namespace Droneshop.Data.Repositories
 
         public Drone ReadById(int id)
         {
-            throw new NotImplementedException();
+            return _ctx.Drones.Include(d => d.Manufacturer).FirstOrDefault(d => d.Id == id); 
         }
 
         public Drone Update(Drone droneUpdate)
