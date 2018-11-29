@@ -10,18 +10,18 @@ namespace DroneShop.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DroneController : ControllerBase
+    public class DronesController : ControllerBase
     {
         public readonly IDroneService _droneService;
 
-        public DroneController(IDroneService droneService)
+        public DronesController(IDroneService droneService)
         {
             _droneService = droneService;
         }
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Drone>> Get(Filter filter)
+        public ActionResult<IEnumerable<Drone>> Get([FromQuery]Filter filter)
         {
             try
             {
@@ -76,8 +76,17 @@ namespace DroneShop.RestApi.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<Drone> Delete(int id)
         {
+            try
+            {
+                return Ok(_droneService.Delete(id));
+            }
+
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
