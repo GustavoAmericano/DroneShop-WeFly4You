@@ -10,11 +10,11 @@ namespace DroneShop.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ManufacturerController : ControllerBase
+    public class ManufacturersController : ControllerBase
     {
         private readonly IManufacturerService _manufacturerService;
 
-        public ManufacturerController(IManufacturerService manufacturerService)
+        public ManufacturersController(IManufacturerService manufacturerService)
         {
             _manufacturerService = manufacturerService;
         }
