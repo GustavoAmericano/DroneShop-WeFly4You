@@ -24,7 +24,17 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Drone Delete(int id)
         {
-            throw new NotImplementedException();
+            if(id < 1)
+            {
+                throw new ArgumentException("The Id entered has to be at least 1");
+            }
+
+            if(_droneRepo.Delete(id) == null)
+            {
+                throw new ArgumentException("Could not find any drones with the entered id");
+            }
+
+            return _droneRepo.Delete(id);
         }
 
         public List<Drone> GetAllDrones(Filter filter)

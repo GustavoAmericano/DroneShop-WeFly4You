@@ -27,7 +27,9 @@ namespace Droneshop.Data.Repositories
 
         public Drone Delete(int id)
         {
-            throw new NotImplementedException();
+            var droneDelete = _ctx.Remove(new Drone { Id = id }).Entity;
+            _ctx.SaveChanges();
+            return droneDelete;
         }
 
         public IEnumerable<Drone> GetAllDrones(Filter filter)
