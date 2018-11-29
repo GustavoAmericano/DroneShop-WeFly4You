@@ -11,6 +11,7 @@ namespace TestCore
 {
     public class DroneServiceTest
     {
+        #region ReadAllDroneTest
 
         [Fact]
         public void ReadAllDronesEnsureRepositoryIsCalled()
@@ -50,7 +51,9 @@ namespace TestCore
         }
 
 
+        #endregion
 
+        #region CreateDroneTest
         [Fact]
         public void CreateDroneEnsureRepositoryIsCalled()
         {
@@ -242,5 +245,203 @@ namespace TestCore
             Exception e = Assert.Throws<ArgumentException>(() => service.Create(drone));
             Assert.Equal("ImageURL cannot be null or empty", e.Message);
         }
+        #endregion
+
+        #region UpdateDrone
+        [Fact]
+        public void UpdateDroneEnsureRepositoryIsCalled()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService service = new DroneService(droneRepo.Object);
+
+            var isCalled = false;
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+
+            };
+
+            droneRepo.Setup(x => x.Update(drone)).Callback(() => isCalled = true).Returns(new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            });
+
+            service.Update(drone);
+            Assert.True(isCalled);
+        }
+
+        [Fact]
+        public void UpdateDroneWithoutManufacturerExeption()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var drone = new Drone()
+            {
+                Id = 1,
+                /*Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },*/
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => droneService.Update(drone));
+
+            Assert.Equal("Manufacturer cannot be null or empty", e.Message);
+        }
+
+        [Fact]
+        public void UpdateDroneWithoutModelExeption()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                //Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => droneService.Update(drone));
+
+            Assert.Equal("Model cannot be null or empty", e.Message);
+        }
+
+        [Fact]
+        public void UpdateDroneWithoutPriceExeption()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                //Price = 500,
+                Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => droneService.Update(drone));
+
+            Assert.Equal("Price cannot be null or empty", e.Message);
+        }
+
+        [Fact]
+        public void UpdateDroneWithoutDetailsExeption()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                //Details = "Handsome",
+                ImageURL = "www.imgUrl.com"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => droneService.Update(drone));
+
+            Assert.Equal("Details cannot be null or empty", e.Message);
+        }
+
+        [Fact]
+        public void UpdateDroneWithoutImageURLExeption()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService droneService = new DroneService(droneRepo.Object);
+
+            var drone = new Drone()
+            {
+                Id = 1,
+                Manufacturer = new Manufacturer()
+                {
+                    Id = 1,
+                    Name = "Phantom",
+                    Drones = new List<Drone>()
+                    {
+                        new Drone()
+                    }
+                },
+                Model = "B15",
+                Price = 500,
+                Details = "Handsome",
+                //ImageURL = "www.imgUrl.com"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => droneService.Update(drone));
+
+            Assert.Equal("ImageURL cannot be null or empty", e.Message);
+        }
+
+        #endregion
+
     }
 }

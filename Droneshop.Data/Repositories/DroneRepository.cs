@@ -1,5 +1,6 @@
 ﻿using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,13 @@ namespace Droneshop.Data.Repositories
 
         public Drone Update(Drone droneUpdate)
         {
-            throw new NotImplementedException();
+            _ctx.Attach(droneUpdate).State = EntityState.Modified;
+
+            _ctx.Entry(droneUpdate).Reference(d => d.Manufacturer).IsModified = true;
+            
+            _ctx.SaveChanges();
+            
+            return droneUpdate;
         }
     }
 }

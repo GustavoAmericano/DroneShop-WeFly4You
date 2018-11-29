@@ -43,7 +43,8 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Drone Update(Drone droneUpdate)
         {
-            throw new NotImplementedException();
+            ValidateData(droneUpdate);
+            return _droneRepo.Update(droneUpdate);
         }
 
         public void ValidateData(Drone drone)

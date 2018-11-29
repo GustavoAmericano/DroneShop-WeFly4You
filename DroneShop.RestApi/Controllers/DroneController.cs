@@ -59,8 +59,19 @@ namespace DroneShop.RestApi.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<Drone> Put(int id, [FromBody] Drone drone)
         {
+            try
+            {
+                drone.Id = id;
+                return Ok(_droneService.Update(drone));
+            }
+
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
 
         // DELETE api/values/5
