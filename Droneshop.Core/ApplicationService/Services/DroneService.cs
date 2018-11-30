@@ -70,9 +70,9 @@ namespace Droneshop.Core.ApplicationService.Services
                 throw new ArgumentException("Manufacturer cannot be null or empty");
             }
 
-            else if(string.IsNullOrEmpty(drone.Model))
+            else if(string.IsNullOrEmpty(drone.ProductName))
             {
-                throw new ArgumentException("Model cannot be null or empty");
+                throw new ArgumentException("ProductName cannot be null or empty");
             }
 
             else if(drone.Price <= 0)

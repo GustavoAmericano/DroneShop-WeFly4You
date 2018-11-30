@@ -27,7 +27,7 @@ namespace Droneshop.Data
                 Details = "Nice drone",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
                 Manufacturer = manufacturer1,
-                Model = "Phantom 4",
+                ProductName = "Phantom 4",
                 Price = 12000
             }).Entity;
             
@@ -37,7 +37,7 @@ namespace Droneshop.Data
                 Details = "Super Nice drone",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
                 Manufacturer = manufacturer1,
-                Model = "Matrice 200",
+                ProductName = "Matrice 200",
                 Price = 22000
             }).Entity;
             
@@ -47,7 +47,7 @@ namespace Droneshop.Data
                 Details = "Ultra Nice drone",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/6/m600pro.jpg",
                 Manufacturer = manufacturer2,
-                Model = "Matrice 600",
+                ProductName = "Matrice 600",
                 Price = 32000
             }).Entity;
             
@@ -57,7 +57,7 @@ namespace Droneshop.Data
                 Details = "Another drone",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
                 Manufacturer = manufacturer1,
-                Model = "Mavic 2 Pro",
+                ProductName = "Mavic 2 Pro",
                 Price = 11499
             }).Entity;
             
@@ -67,7 +67,7 @@ namespace Droneshop.Data
                 Details = "Another drone",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
                 Manufacturer = manufacturer1,
-                Model = "Inspire 2 Cinema Pro",
+                ProductName = "Inspire 2 Cinema Pro",
                 Price = 151499
             }).Entity;
             
@@ -77,7 +77,7 @@ namespace Droneshop.Data
                 Details = "Another drone",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
                 Manufacturer = manufacturer2,
-                Model = "Inspire 2 Professional",
+                ProductName = "Inspire 2 Professional",
                 Price = 52499
             }).Entity;
 

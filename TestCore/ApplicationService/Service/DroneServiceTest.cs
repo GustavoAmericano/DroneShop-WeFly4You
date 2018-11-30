@@ -36,7 +36,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -74,7 +74,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -107,7 +107,7 @@ namespace TestCore
                         new Drone()
                     }
                 },*/
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -138,7 +138,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                //Model = "B15",
+                //ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -147,7 +147,7 @@ namespace TestCore
             };
 
             Exception e = Assert.Throws<ArgumentException>(() => service.Create(drone));
-            Assert.Equal("Model cannot be null or empty", e.Message);
+            Assert.Equal("ProductName cannot be null or empty", e.Message);
         }
 
 
@@ -170,7 +170,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 //Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -202,7 +202,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 //Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -233,7 +233,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 //ImageURL = "www.imgUrl.com"
@@ -267,7 +267,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -286,7 +286,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -314,7 +314,7 @@ namespace TestCore
                         new Drone()
                     }
                 },*/
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -343,7 +343,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                //Model = "B15",
+                //ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -351,7 +351,7 @@ namespace TestCore
 
             var e = Assert.Throws<ArgumentException>(() => droneService.Update(drone));
 
-            Assert.Equal("Model cannot be null or empty", e.Message);
+            Assert.Equal("ProductName cannot be null or empty", e.Message);
         }
 
         [Fact]
@@ -372,7 +372,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 //Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -401,7 +401,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 //Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -430,7 +430,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 //ImageURL = "www.imgUrl.com"
@@ -463,7 +463,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -481,7 +481,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -509,7 +509,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -541,7 +541,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -559,7 +559,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -587,7 +587,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
@@ -616,7 +616,7 @@ namespace TestCore
                         new Drone()
                     }
                 },
-                Model = "B15",
+                ProductName = "B15",
                 Price = 500,
                 Details = "Handsome",
                 ImageURL = "www.imgUrl.com"
