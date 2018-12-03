@@ -1,10 +1,18 @@
 using Droneshop.Core.Entity;
+using Droneshop.Core.Helpers;
 
 namespace Droneshop.Data
 {
-    public class DBInitializor
+    public class DBInitializor : IDBInitializor
     {
-        public static void SeedDB(DroneShopContext ctx)
+        private readonly IAuthenticationHelper _authenticationHelper;
+
+        public DBInitializor(IAuthenticationHelper authenticationHelper)
+        {
+            _authenticationHelper = authenticationHelper;
+        }
+
+        public void SeedDB(DroneShopContext ctx)
         {
             ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
@@ -81,7 +89,20 @@ namespace Droneshop.Data
                 Price = 52499
             }).Entity;
 
+            string password = "1234";
+            _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
+            var user = ctx.Users.Add(new User()
+            {
+                Id = 1,
+                Username = "AdminAllan",
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                IsAdmin = true
+                
+            }).Entity;
+
             ctx.SaveChanges();
         }
+
     }
 }
