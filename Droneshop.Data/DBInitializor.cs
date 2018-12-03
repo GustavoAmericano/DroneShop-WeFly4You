@@ -24,7 +24,7 @@ namespace Droneshop.Data
             var drone1 = ctx.Drones.Add(new Drone()
             {
                 Id = 1,
-                Details = "Nice drone",
+                Details = "All-new DJI Phantom 4 Pro equipped with an uprated camera is equipped with a 1-inch 20-megapixel sensor capable of shooting 4K/60fps video and Burst Mode stills at 14 fps.The adoption of titanium alloy and magnesium alloy construction increases the rigidity of the airframe and reduces weight, making the Phantom 4 Pro similar incredibly light. The Flight Autonomy system adds dual rear vision sensors and infrared sensing systems for a total of 5-direction of obstacle sensing and 4-direction of obstacle avoidance.",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Phantom 4",
