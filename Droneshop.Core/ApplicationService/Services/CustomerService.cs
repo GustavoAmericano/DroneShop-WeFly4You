@@ -48,6 +48,11 @@ namespace Droneshop.Core.ApplicationService.Services
             {
                 throw new ArgumentException("Lastname cannot be null or empty");
             }
+            
+            if (string.IsNullOrEmpty(customer.Address))
+            {
+                throw new ArgumentException("Address cannot be null or empty");
+            }
 
             return _customerRepository.CreateCustomer(customer);
         }
