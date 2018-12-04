@@ -41,7 +41,9 @@ namespace Droneshop.Data.Repositories
 
         public Customer DeleteCustomer(int id)
         {
-            throw new System.NotImplementedException();
+            var custRemoved = _ctx.Remove(new Customer() {Id = id}).Entity;
+            _ctx.SaveChanges();
+            return custRemoved;
         }
     }
 }
