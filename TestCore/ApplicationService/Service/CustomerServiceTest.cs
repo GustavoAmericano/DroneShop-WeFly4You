@@ -151,6 +151,26 @@ namespace TestCore
             
             Assert.Equal("Lastname cannot be null or empty", e.Message);
         }
+        
+        [Fact]
+        public void CreateCustomerWithoutAddressThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var customer = new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Email = "hans.hansen@gmai.com",
+                PhoneNumber = 12345678
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.CreateCustomer(customer));
+            
+            Assert.Equal("Address cannot be null or empty", e.Message);
+        }
 
         #endregion
     }
