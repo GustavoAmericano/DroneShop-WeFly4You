@@ -10,6 +10,9 @@ namespace TestCore
 {
     public class CustomerServiceTest
     {
+
+        #region ReadAllCustomers
+
         [Fact]
         public void ReadAllCustomersEnsureRepositoryIsCalled()
         {
@@ -24,5 +27,32 @@ namespace TestCore
             
             Assert.True(isCalled);
         }
+        
+        #endregion
+
+        #region ReadCustomerById
+
+        [Fact]
+        public void ReadCustomerByIdEnsureRepositoryIsCalled()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var isCalled = false;
+            var customer = new Customer()
+            {
+                Id = 1,
+            };
+
+            customerRepo.Setup(x => x.ReadCustomerById(customer.Id)).Callback(() => isCalled = true).Returns(customer);
+
+            customerService.ReadCustomerById(customer.Id);
+            
+            Assert.True(isCalled);
+        }
+
+        #endregion
+        
+        
     }
 }
