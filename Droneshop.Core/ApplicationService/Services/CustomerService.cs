@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Droneshop.Core.DomainService;
@@ -21,7 +22,12 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Customer ReadCustomerById(int id)
         {
-            throw new System.NotImplementedException();
+            if (id < 1)
+            {
+                throw new ArgumentException("Could not find any manufacturer with the entered id");
+            }
+
+            return _customerRepository.ReadCustomerById(id);
         }
 
         public Customer CreateCustomer(Customer customer)
