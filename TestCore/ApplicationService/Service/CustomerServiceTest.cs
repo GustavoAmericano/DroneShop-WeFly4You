@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Droneshop.Core.ApplicationService;
 using Droneshop.Core.ApplicationService.Services;
@@ -49,6 +50,21 @@ namespace TestCore
             customerService.ReadCustomerById(customer.Id);
             
             Assert.True(isCalled);
+        }
+
+        [Fact]
+        public void ReadCustomerByIdWithIdLowerThan1ThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+            var customer = new Customer()
+            {
+                Id = 0,
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.ReadCustomerById(customer.Id));
+            
+            Assert.Equal("Could not find any manufacturer with the entered id", e.Message);
         }
 
         #endregion
