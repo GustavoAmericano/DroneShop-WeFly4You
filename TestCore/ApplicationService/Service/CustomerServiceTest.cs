@@ -362,5 +362,28 @@ namespace TestCore
         }
 
         #endregion
+        
+        #region DeleteCustomer
+
+        [Fact]
+        public void DeleteCustomerEnsureRepositoryIsCalled()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var isCalled = false;
+            var customer = new Customer()
+            {
+                Id = 1,
+            };
+
+            customerRepo.Setup(x => x.DeleteCustomer(customer.Id)).Callback(() => isCalled = true).Returns(customer);
+
+            customerService.DeleteCustomer(customer.Id);
+            
+            Assert.True(isCalled);
+        }
+
+        #endregion
     }
 }
