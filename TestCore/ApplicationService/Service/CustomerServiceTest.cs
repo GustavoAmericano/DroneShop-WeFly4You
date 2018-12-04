@@ -213,5 +213,154 @@ namespace TestCore
         }
 
         #endregion
+
+        #region UpdateCustomer
+
+        [Fact]
+        public void UpdateCustomerEnsureRepositoryIsCalled()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var isCalled = false;
+            var customer = new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Address = "Testvej 11",
+                Email = "hans.hansen@gmai.com",
+                PhoneNumber = 12345678
+            };
+
+            customerRepo.Setup(x => x.UpdateCustomer(customer)).Callback(() => isCalled = true).Returns(customer);
+
+            customerService.UpdateCustomer(customer);
+            
+            Assert.True(isCalled);
+        }
+
+        [Fact]
+        public void UpdateCustomerWithIdLowerThan1ThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var customer = new Customer()
+            {
+                Id = 0,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Address = "Testvej 11",
+                Email = "hans.hansen@gmai.com",
+                PhoneNumber = 12345678
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.UpdateCustomer(customer));
+            
+            Assert.Equal("Firstname cannot be null or empty", e.Message);
+        }
+        
+        [Fact]
+        public void UpdateCustomerWithoutFirstNameThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var customer = new Customer()
+            {
+                Id = 1,
+                LastName = "Hansen",
+                Address = "Testvej 11",
+                Email = "hans.hansen@gmai.com",
+                PhoneNumber = 12345678
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.UpdateCustomer(customer));
+            
+            Assert.Equal("Firstname cannot be null or empty", e.Message);
+        }
+
+        [Fact]
+        public void UpdateCustomerWithoutLastNameThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var customer = new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                Address = "Testvej 11",
+                Email = "hans.hansen@gmai.com",
+                PhoneNumber = 12345678
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.UpdateCustomer(customer));
+            
+            Assert.Equal("Lastname cannot be null or empty", e.Message);
+        }
+        
+        [Fact]
+        public void UpdateCustomerWithoutAddressThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var customer = new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Email = "hans.hansen@gmai.com",
+                PhoneNumber = 12345678
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.UpdateCustomer(customer));
+            
+            Assert.Equal("Address cannot be null or empty", e.Message);
+        }
+        
+        [Fact]
+        public void UpdateCustomerWithoutEmailThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var customer = new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Address = "Testvej 11",
+                PhoneNumber = 12345678
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.UpdateCustomer(customer));
+            
+            Assert.Equal("Email cannot be null or empty", e.Message);
+        }
+        
+        [Fact]
+        public void UpdateCustomerWithoutPhoneNumberThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var customer = new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Address = "Testvej 11",
+                Email = "hans.hansen@gmail.com"
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.UpdateCustomer(customer));
+            
+            Assert.Equal("PhoneNumber cannot be 0", e.Message);
+        }
+
+        #endregion
     }
 }
