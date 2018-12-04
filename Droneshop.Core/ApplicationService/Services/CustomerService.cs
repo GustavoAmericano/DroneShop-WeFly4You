@@ -24,7 +24,14 @@ namespace Droneshop.Core.ApplicationService.Services
         {
             if (id < 1)
             {
-                throw new ArgumentException("Could not find any manufacturer with the entered id");
+                throw new ArgumentException("The Id entered has to be at least 1");
+            }
+
+            var customerFound = _customerRepository.ReadCustomerById(id);
+
+            if (customerFound == null)
+            {
+                throw new NullReferenceException("Could not find any customer with the entered id");
             }
 
             return _customerRepository.ReadCustomerById(id);

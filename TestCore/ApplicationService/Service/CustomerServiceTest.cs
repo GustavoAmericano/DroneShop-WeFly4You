@@ -64,7 +64,7 @@ namespace TestCore
 
             var e = Assert.Throws<ArgumentException>(() => customerService.ReadCustomerById(customer.Id));
             
-            Assert.Equal("Could not find any manufacturer with the entered id", e.Message);
+            Assert.Equal("The Id entered has to be at least 1", e.Message);
         }
 
         [Fact]

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
 
@@ -20,7 +21,7 @@ namespace Droneshop.Data.Repositories
 
         public Customer ReadCustomerById(int id)
         {
-            throw new System.NotImplementedException();
+            return _ctx.Customers.FirstOrDefault(c => c.Id == id);
         }
 
         public Customer CreateCustomer(Customer customer)
