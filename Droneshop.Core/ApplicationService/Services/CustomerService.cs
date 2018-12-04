@@ -58,6 +58,11 @@ namespace Droneshop.Core.ApplicationService.Services
             {
                 throw new ArgumentException("Email cannot be null or empty");
             }
+
+            if (customer.PhoneNumber == 0)
+            {
+                throw new ArgumentException("PhoneNumber cannot be 0");
+            }
             return _customerRepository.CreateCustomer(customer);
         }
 
