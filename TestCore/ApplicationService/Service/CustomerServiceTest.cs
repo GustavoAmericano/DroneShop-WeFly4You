@@ -86,6 +86,33 @@ namespace TestCore
 
         #endregion
         
+        #region CreateCustomer
+
+        [Fact]
+        public void CreateCustomerEnsureRepositoryIsCalled()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+
+            var isCalled = false;
+            var customer = new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Address = "Testvej 11",
+                Email = "hans.hansen@gmai.com",
+                PhoneNumber = 12345678
+            };
+
+            customerRepo.Setup(x => x.CreateCustomer(customer)).Callback(() => isCalled = true).Returns(customer);
+
+            customerService.CreateCustomer(customer);
+            
+            Assert.True(isCalled);
+        }
         
+
+        #endregion
     }
 }
