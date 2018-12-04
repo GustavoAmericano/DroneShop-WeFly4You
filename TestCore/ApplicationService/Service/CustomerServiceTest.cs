@@ -383,6 +383,21 @@ namespace TestCore
             
             Assert.True(isCalled);
         }
+        
+        [Fact]
+        public void DeleteCustomerWithIdLowerThan1ThrowsException()
+        {
+            var customerRepo = new Mock<ICustomerRepository>();
+            ICustomerService customerService = new CustomerService(customerRepo.Object);
+            var customer = new Customer()
+            {
+                Id = 0,
+            };
+
+            var e = Assert.Throws<ArgumentException>(() => customerService.DeleteCustomer(customer.Id));
+            
+            Assert.Equal("The Id entered has to be at least 1", e.Message);
+        }
 
         #endregion
     }
