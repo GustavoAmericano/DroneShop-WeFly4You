@@ -80,6 +80,8 @@ namespace DroneShop.RestApi
             services.AddScoped<IDBInitializor, DBInitializor>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ICustomerService, CustomerService>();
             services.AddSingleton<IAuthenticationHelper>(new AuthenticationHelper(secretBytes));
 
             services.AddMvc().AddJsonOptions(options =>
