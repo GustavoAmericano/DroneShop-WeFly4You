@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Droneshop.Data.Repositories
 {
@@ -26,7 +27,9 @@ namespace Droneshop.Data.Repositories
 
         public Customer CreateCustomer(Customer customer)
         {
-            throw new System.NotImplementedException();
+            _ctx.Customers.Attach(customer).State = EntityState.Added;
+            _ctx.SaveChanges();
+            return customer;
         }
 
         public Customer UpdateCustomer(Customer customer)
