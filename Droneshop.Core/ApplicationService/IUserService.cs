@@ -10,6 +10,6 @@ namespace Droneshop.Core.ApplicationService
         User CreateUser(User user);
         User UpdateUser(User user);
         User DeleteUser(int id);
-        //test git
+        //test git 2
     }
 }
