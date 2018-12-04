@@ -55,7 +55,7 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Customer DeleteCustomer(int id)
         {
-            throw new System.NotImplementedException();
+            return _customerRepository.DeleteCustomer(id);
         }
 
         private void VerifyCustomerInput(Customer customer)
