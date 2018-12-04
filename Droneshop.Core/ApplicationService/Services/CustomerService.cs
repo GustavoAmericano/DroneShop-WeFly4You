@@ -39,7 +39,12 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Customer CreateCustomer(Customer customer)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(customer.FirstName))
+            {
+                throw new ArgumentException("Firstname cannot be null or empty");
+            }
+
+            return _customerRepository.CreateCustomer(customer);
         }
 
         public Customer UpdateCustomer(Customer customer)
