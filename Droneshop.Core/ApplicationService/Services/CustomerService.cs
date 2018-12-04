@@ -1,13 +1,21 @@
 using System.Collections.Generic;
+using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
 
 namespace Droneshop.Core.ApplicationService.Services
 {
     public class CustomerService : ICustomerService
     {
+        private readonly ICustomerRepository _customerRepository;
+
+        public CustomerService(ICustomerRepository customerRepository)
+        {
+            _customerRepository = customerRepository;
+        }
+
         public List<Customer> ReadAllCustomers()
         {
-            throw new System.NotImplementedException();
+            return _customerRepository.ReadAllCustomers();
         }
 
         public Customer ReadCustomerById(int id)

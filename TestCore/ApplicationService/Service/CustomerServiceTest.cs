@@ -19,6 +19,8 @@ namespace TestCore
             var isCalled = false;
 
             customerRepo.Setup(x => x.ReadAllCustomers()).Callback(() => isCalled = true).Returns(new List<Customer>());
+
+            customerService.ReadAllCustomers();
             
             Assert.True(isCalled);
         }
