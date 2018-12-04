@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
 
@@ -15,7 +16,7 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public List<Customer> ReadAllCustomers()
         {
-            return _customerRepository.ReadAllCustomers();
+            return _customerRepository.ReadAllCustomers().ToList();
         }
 
         public Customer ReadCustomerById(int id)

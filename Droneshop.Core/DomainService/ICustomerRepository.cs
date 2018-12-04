@@ -5,7 +5,7 @@ namespace Droneshop.Core.DomainService
 {
     public interface ICustomerRepository
     {
-        List<Customer> ReadAllCustomers();
+        IEnumerable<Customer> ReadAllCustomers();
 
         Customer ReadCustomerById(int id);
 

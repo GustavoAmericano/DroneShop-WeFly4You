@@ -6,9 +6,16 @@ namespace Droneshop.Data.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        public List<Customer> ReadAllCustomers()
+        private readonly DroneShopContext _ctx;
+
+        public CustomerRepository(DroneShopContext ctx)
         {
-            throw new System.NotImplementedException();
+            _ctx = ctx;
+        }
+
+        public IEnumerable<Customer> ReadAllCustomers()
+        {
+            return _ctx.Customers;
         }
 
         public Customer ReadCustomerById(int id)
