@@ -34,7 +34,9 @@ namespace Droneshop.Data.Repositories
 
         public Customer UpdateCustomer(Customer customer)
         {
-            throw new System.NotImplementedException();
+            _ctx.Customers.Attach(customer).State = EntityState.Modified;
+            _ctx.SaveChanges();
+            return customer;
         }
 
         public Customer DeleteCustomer(int id)
