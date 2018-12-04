@@ -258,7 +258,7 @@ namespace TestCore
 
             var e = Assert.Throws<ArgumentException>(() => customerService.UpdateCustomer(customer));
             
-            Assert.Equal("Firstname cannot be null or empty", e.Message);
+            Assert.Equal("The Id cannot be less than 1", e.Message);
         }
         
         [Fact]

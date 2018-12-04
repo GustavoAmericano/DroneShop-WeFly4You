@@ -39,6 +39,27 @@ namespace Droneshop.Core.ApplicationService.Services
 
         public Customer CreateCustomer(Customer customer)
         {
+            VerifyCustomerInput(customer);
+            return _customerRepository.CreateCustomer(customer);
+        }
+
+        public Customer UpdateCustomer(Customer customer)
+        {
+            if (customer.Id < 1)
+            {
+                throw new ArgumentException("The Id cannot be less than 1");
+            }
+            VerifyCustomerInput(customer);
+            return _customerRepository.UpdateCustomer(customer);
+        }
+
+        public Customer DeleteCustomer(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void VerifyCustomerInput(Customer customer)
+        {
             if (string.IsNullOrEmpty(customer.FirstName))
             {
                 throw new ArgumentException("Firstname cannot be null or empty");
@@ -63,17 +84,6 @@ namespace Droneshop.Core.ApplicationService.Services
             {
                 throw new ArgumentException("PhoneNumber cannot be 0");
             }
-            return _customerRepository.CreateCustomer(customer);
-        }
-
-        public Customer UpdateCustomer(Customer customer)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Customer DeleteCustomer(int id)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
