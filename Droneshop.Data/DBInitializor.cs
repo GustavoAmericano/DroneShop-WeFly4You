@@ -101,6 +101,36 @@ namespace Droneshop.Data
                 
             }).Entity;
 
+            var customer = ctx.Customers.Add(new Customer()
+            {
+                Id = 1,
+                FirstName = "Hans",
+                LastName = "Hansen",
+                Address = "Kongensgade 11",
+                PhoneNumber = 12345678,
+                Email = "hans.hansen@gmail.com"
+            }).Entity;
+
+            var customer2 = ctx.Customers.Add(new Customer()
+            {
+                Id = 2,
+                FirstName = "Mikkel",
+                LastName = "Mikkelsen",
+                Address = "Kongensgade 11",
+                PhoneNumber = 15748798,
+                Email = "mikkel.mikkelsen@gmail.com"
+            }).Entity;
+
+            var customer3 = ctx.Customers.Add(new Customer()
+            {
+                Id = 3,
+                FirstName = "Kristian",
+                LastName = "Kristiansen",
+                Address = "Kristiansgade 112",
+                PhoneNumber = 12457612,
+                Email = "kristian.kristiansen@gmail.com"
+            }).Entity;
+
             ctx.SaveChanges();
         }
 
