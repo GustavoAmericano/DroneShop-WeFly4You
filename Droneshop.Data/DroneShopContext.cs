@@ -14,11 +14,13 @@ namespace Droneshop.Data
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Drone>().HasOne(d => d.Manufacturer).WithMany(m => m.Drones).OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<Order>().HasOne(o => o.Cust).WithMany(c => c.Order).OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
