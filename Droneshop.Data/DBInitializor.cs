@@ -1,5 +1,6 @@
 using Droneshop.Core.Entity;
 using Droneshop.Core.Helpers;
+using System;
 
 namespace Droneshop.Data
 {
@@ -16,6 +17,8 @@ namespace Droneshop.Data
         {
             ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
+
+           
 
             var manufacturer1 = ctx.Manufacturers.Add(new Manufacturer()
             {
@@ -99,6 +102,43 @@ namespace Droneshop.Data
                 PasswordSalt = passwordSalt,
                 IsAdmin = true
                 
+            }).Entity;
+
+
+            var customer1 = ctx.Customers.Add(new Customer()
+            {
+                Id = 1,
+                FirstName = "cust1",
+                LastName = "cust1",
+                Address = "testVej1",
+                Email = "test@test.test",
+                PhoneNumber = 12345678
+            }).Entity;
+
+            var customer2 = ctx.Customers.Add(new Customer()
+            {
+                Id = 2,
+                FirstName = "cust2",
+                LastName = "cust2",
+                Address = "testVej2",
+                Email = "test@test.test",
+                PhoneNumber = 12345678
+            }).Entity;
+
+
+            var order1 = ctx.Orders.Add(new Order()
+            {
+                Id = 1,
+                OderDate = DateTime.Now,
+                Customer = customer1
+            }).Entity;
+
+            var orderLine1 = ctx.OrderLines.Add(new OrderLine()
+            {
+                DroneId = 1,
+                Drone = drone1,
+                OrderId = 1,
+                Order = order1
             }).Entity;
 
             ctx.SaveChanges();

@@ -8,7 +8,8 @@ namespace Droneshop.Core.Entity
     {
         public int Id { get; set; }
         public DateTime OderDate { get; set; }
-        public Customer Cust { get; set; }
+        public Customer Customer { get; set; }
+        public List<OrderLine> OrderLines { get; set; }
 
     }
 }
