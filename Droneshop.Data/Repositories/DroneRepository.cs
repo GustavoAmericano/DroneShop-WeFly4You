@@ -17,6 +17,11 @@ namespace Droneshop.Data.Repositories
             _ctx = ctx;
         }
 
+        public IEnumerable<Drone> GetAllDronesIncludeManufacturers()
+        {
+            return _ctx.Drones.Include(d => d.Manufacturer);
+        }
+
         public Drone Create(Drone drone)
         {
             _ctx.Attach(drone).State = Microsoft.EntityFrameworkCore.EntityState.Added;

@@ -6,6 +6,7 @@ namespace Droneshop.Core.DomainService
     public interface IManufacturerRepository
     {
         IEnumerable<Manufacturer> GetAllManufacturers(Filter filter);
+        IEnumerable<Manufacturer> GetAllManufacturersIncludeDrones();
         Manufacturer Create(Manufacturer manufacturer);
         Manufacturer ReadById(int id);
         Manufacturer Delete(int id);

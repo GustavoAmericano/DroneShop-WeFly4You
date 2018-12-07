@@ -24,6 +24,11 @@ namespace Droneshop.Core.ApplicationService.Services
             return _manufacturerRepository.GetAllManufacturers(filter).ToList();
         }
 
+        public List<Manufacturer> GetAllManufacturersIncludeDrones()
+        {
+            return _manufacturerRepository.GetAllManufacturersIncludeDrones().ToList();
+        }
+
         public Manufacturer Create(Manufacturer manufacturer)
         {
             if (string.IsNullOrEmpty(manufacturer.Name))

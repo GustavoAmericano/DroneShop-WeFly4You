@@ -25,6 +25,11 @@ namespace Droneshop.Data.Repositories
             return _ctx.Manufacturers.Skip((filter.CurrentPage - 1) * filter.ItemsPerPage).Take(filter.ItemsPerPage);
         }
 
+        public IEnumerable<Manufacturer> GetAllManufacturersIncludeDrones()
+        {
+            return _ctx.Manufacturers.Include(m => m.Drones);
+        }
+
         public Manufacturer Create(Manufacturer manufacturer)
         {
             _ctx.Attach(manufacturer).State = EntityState.Added;

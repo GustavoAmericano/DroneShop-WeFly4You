@@ -73,6 +73,23 @@ namespace TestCore
         }
 
         #endregion
+        
+        #region GetAllManufacturersIncludeDrones
+        [Fact]
+        public void GetAllManufacturersIncludeDronesEnsureRepositoryIsCalled()
+        {
+            var manufacturerRepo = new Mock<IManufacturerRepository>();
+            IManufacturerService manufacturerService = new ManufacturerService(manufacturerRepo.Object);
+
+            var isCalled = false;
+
+            manufacturerRepo.Setup(x => x.GetAllManufacturersIncludeDrones()).Callback(() => isCalled = true).Returns(new List<Manufacturer>());
+
+            manufacturerService.GetAllManufacturersIncludeDrones();
+            
+            Assert.True(isCalled);
+        }
+        #endregion
 
         #region CreateManufacturer
         [Fact]

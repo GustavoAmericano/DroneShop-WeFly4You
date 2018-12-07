@@ -16,6 +16,11 @@ namespace Droneshop.Core.ApplicationService.Services
             _droneRepo = repo;
         }
 
+        public List<Drone> GetAllDronesIncludeManufacturers()
+        {
+            return _droneRepo.GetAllDronesIncludeManufacturers().ToList();
+        }
+
         public Drone Create(Drone drone)
         {
             ValidateData(drone);
@@ -63,7 +68,7 @@ namespace Droneshop.Core.ApplicationService.Services
             return _droneRepo.Update(droneUpdate);
         }
 
-        public void ValidateData(Drone drone)
+        private void ValidateData(Drone drone)
         {
             if(drone.Manufacturer == null)
             {

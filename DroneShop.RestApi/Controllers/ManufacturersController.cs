@@ -25,7 +25,7 @@ namespace DroneShop.RestApi.Controllers
         {
             try
             {
-                return Ok(_manufacturerService.GetAllManufacturers(filter));
+                return Ok(filter.IncludeOtherEntity ? _manufacturerService.GetAllManufacturersIncludeDrones() : _manufacturerService.GetAllManufacturers(filter));
             }
             catch (Exception e)
             {

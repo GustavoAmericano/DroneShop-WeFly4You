@@ -52,6 +52,25 @@ namespace TestCore
 
 
         #endregion
+        
+        #region ReadAllDronesIncludeManufacturersTest
+
+        [Fact]
+        public void ReadAllDronesIncludeManufacturersEnsureRepositoryIsCalled()
+        {
+            var droneRepo = new Mock<IDroneRepository>();
+            IDroneService service = new DroneService(droneRepo.Object);
+
+            var isCalled = false;
+
+            droneRepo.Setup(x => x.GetAllDronesIncludeManufacturers()).Callback(() => isCalled = true).Returns(new List<Drone>());
+
+            service.GetAllDronesIncludeManufacturers();
+            Assert.True(isCalled);
+
+        }
+        
+        #endregion
 
         #region CreateDroneTest
         [Fact]
