@@ -1,6 +1,7 @@
 using Droneshop.Core.Entity;
 using Droneshop.Core.Helpers;
 using System;
+using System.Collections.Generic;
 
 namespace Droneshop.Data
 {
@@ -130,16 +131,47 @@ namespace Droneshop.Data
             {
                 Id = 1,
                 OderDate = DateTime.Now,
-                Customer = customer1
+                Customer = customer1,
+                OrderLines = new List<OrderLine>()
+                {
+                    new OrderLine()
+                    {
+                        DroneId = 1,
+                        Qty = 5,
+                        BoughtPrice = 500
+                    }
+                }      
             }).Entity;
 
+
+            var order2 = ctx.Orders.Add(new Order()
+            {
+                Id = 2,
+                OderDate = DateTime.Now,
+                Customer = customer2,
+                OrderLines = new List<OrderLine>()
+                {
+                    new OrderLine()
+                    {
+                        DroneId = 2,
+                        Qty = 5,
+                        BoughtPrice = 500
+                    }
+                }
+            }).Entity;
+
+
+/*
             var orderLine1 = ctx.OrderLines.Add(new OrderLine()
             {
                 DroneId = 1,
                 Drone = drone1,
                 OrderId = 1,
-                Order = order1
-            }).Entity;
+                Order = order1,
+                Qty = 2,
+                BoughtPrice = 2000
+                
+            }).Entity;*/
 
             ctx.SaveChanges();
         }

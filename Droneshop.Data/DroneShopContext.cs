@@ -20,8 +20,10 @@ namespace Droneshop.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Drone>().HasOne(d => d.Manufacturer).WithMany(m => m.Drones).OnDelete(DeleteBehavior.SetNull);
-            modelBuilder.Entity<Order>().HasOne(o => o.Customer).WithMany(c => c.Order).OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<Order>().HasOne(o => o.Customer).WithMany(c => c.Orders).OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<OrderLine>().HasKey(ol => new { ol.DroneId, ol.OrderId });
             modelBuilder.Entity<OrderLine>().HasOne(ol => ol.Order).WithMany(o => o.OrderLines).HasForeignKey(ol => ol.OrderId);

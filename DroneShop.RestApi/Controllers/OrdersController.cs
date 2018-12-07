@@ -64,14 +64,31 @@ namespace DroneShop.RestApi.Controllers
 
         // PUT: api/Orders/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult<Order> Put(int id, [FromBody] Order order)
         {
+            try
+            {
+                return Ok(_orderService.UpdateOrder(order));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<Order> Delete(int id)
         {
+            try
+            {
+                return Ok(_orderService.DeleteOrder(id));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
