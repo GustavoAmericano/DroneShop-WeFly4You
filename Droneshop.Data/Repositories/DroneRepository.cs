@@ -17,14 +17,15 @@ namespace Droneshop.Data.Repositories
             _ctx = ctx;
         }
 
-        public IEnumerable<Drone> GetAllDronesIncludeManufacturers()
+        public FilteredList<Drone> GetAllDronesIncludeManufacturers()
         {
-            return _ctx.Drones.Include(d => d.Manufacturer);
+            var filteredList = new FilteredList<Drone> {List = _ctx.Drones.Include(d => d.Manufacturer), Count = _ctx.Drones.Count()};
+            return filteredList;
         }
 
         public Drone Create(Drone drone)
         {
-            _ctx.Attach(drone).State = Microsoft.EntityFrameworkCore.EntityState.Added;
+            _ctx.Attach(drone).State = EntityState.Added;
             _ctx.SaveChanges();
 
             return drone;
@@ -37,14 +38,35 @@ namespace Droneshop.Data.Repositories
             return droneDelete;
         }
 
-        public IEnumerable<Drone> GetAllDrones(Filter filter)
+        public FilteredList<Drone> GetAllDrones(Filter filter)
         {
-            if(filter.ItemsPerPage == 0 && filter.CurrentPage == 0)
+            var filteredList = new FilteredList<Drone>();
+
+            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && filter.IsSortedDescendingByPrice)
             {
-                return _ctx.Drones;
+                filteredList.List = _ctx.Drones
+                    .OrderByDescending(drone => drone.Price)
+                    .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
+                    .Take(filter.ItemsPerPage);
+                filteredList.Count = _ctx.Drones.Count();
+                
+                return filteredList;
+            }
+            
+            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && !filter.IsSortedDescendingByPrice)
+            {
+                filteredList.List = _ctx.Drones
+                    .OrderBy(drone => drone.Price)
+                    .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
+                    .Take(filter.ItemsPerPage);
+                filteredList.Count = _ctx.Drones.Count();
+                
+                return filteredList;
             }
 
-            return _ctx.Drones.Skip((filter.CurrentPage - 1) * filter.ItemsPerPage).Take(filter.ItemsPerPage);
+            filteredList.List = _ctx.Drones;
+            filteredList.Count = _ctx.Drones.Count();
+            return filteredList;
         }
 
         public Drone ReadById(int id)

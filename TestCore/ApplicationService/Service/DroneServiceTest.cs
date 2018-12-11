@@ -22,28 +22,8 @@ namespace TestCore
             var isCalled = false;
             var filter = new Filter();
 
-            droneRepo.Setup(x => x.GetAllDrones(filter)).Callback(() => isCalled = true).Returns(new List<Drone>()
-            {
-                 new Drone()
-            {
-                Id = 1,
-                Manufacturer = new Manufacturer()
-                {
-                    Id = 1,
-                    Name = "Phantom",
-                    Drones = new List<Drone>()
-                    {
-                        new Drone()
-                    }
-                },
-                ProductName = "B15",
-                Price = 500,
-                Details = "Handsome",
-                ImageURL = "www.imgUrl.com"
-
-            }
-
-            });
+            droneRepo.Setup(x => x.GetAllDrones(filter)).Callback(() => isCalled = true)
+                .Returns(new FilteredList<Drone>());
 
             service.GetAllDrones(filter);
             Assert.True(isCalled);
@@ -63,7 +43,7 @@ namespace TestCore
 
             var isCalled = false;
 
-            droneRepo.Setup(x => x.GetAllDronesIncludeManufacturers()).Callback(() => isCalled = true).Returns(new List<Drone>());
+            droneRepo.Setup(x => x.GetAllDronesIncludeManufacturers()).Callback(() => isCalled = true).Returns(new FilteredList<Drone>());
 
             service.GetAllDronesIncludeManufacturers();
             Assert.True(isCalled);
