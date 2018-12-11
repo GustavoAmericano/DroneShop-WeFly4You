@@ -88,6 +88,86 @@ namespace Droneshop.Data
                 ProductName = "Inspire 2 Professional",
                 Price = 52499
             }).Entity;
+            
+            var drone7 = ctx.Drones.Add(new Drone()
+            {
+                Id = 7,
+                Details = "All-new DJI Phantom 4 Pro equipped with an uprated camera is equipped with a 1-inch 20-megapixel sensor capable of shooting 4K/60fps video and Burst Mode stills at 14 fps.The adoption of titanium alloy and magnesium alloy construction increases the rigidity of the airframe and reduces weight, making the Phantom 4 Pro similar incredibly light. The Flight Autonomy system adds dual rear vision sensors and infrared sensing systems for a total of 5-direction of obstacle sensing and 4-direction of obstacle avoidance.",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
+                Manufacturer = manufacturer1,
+                ProductName = "Phantom 4",
+                Price = 12000
+            }).Entity;
+            
+            var drone8 = ctx.Drones.Add(new Drone()
+            {
+                Id = 8,
+                Details = "All-new DJI Phantom 4 Pro equipped with an uprated camera is equipped with a 1-inch 20-megapixel sensor capable of shooting 4K/60fps video and Burst Mode stills at 14 fps.The adoption of titanium alloy and magnesium alloy construction increases the rigidity of the airframe and reduces weight, making the Phantom 4 Pro similar incredibly light. The Flight Autonomy system adds dual rear vision sensors and infrared sensing systems for a total of 5-direction of obstacle sensing and 4-direction of obstacle avoidance.",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
+                Manufacturer = manufacturer1,
+                ProductName = "Phantom 4",
+                Price = 12000
+            }).Entity;
+            
+            var drone9 = ctx.Drones.Add(new Drone()
+            {
+                Id = 9,
+                Details = "All-new DJI Phantom 4 Pro equipped with an uprated camera is equipped with a 1-inch 20-megapixel sensor capable of shooting 4K/60fps video and Burst Mode stills at 14 fps.The adoption of titanium alloy and magnesium alloy construction increases the rigidity of the airframe and reduces weight, making the Phantom 4 Pro similar incredibly light. The Flight Autonomy system adds dual rear vision sensors and infrared sensing systems for a total of 5-direction of obstacle sensing and 4-direction of obstacle avoidance.",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
+                Manufacturer = manufacturer1,
+                ProductName = "Phantom 4",
+                Price = 12000
+            }).Entity;
+            
+            var drone10 = ctx.Drones.Add(new Drone()
+            {
+                Id = 10,
+                Details = "Another drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
+                Manufacturer = manufacturer1,
+                ProductName = "Mavic 2 Pro",
+                Price = 11499
+            }).Entity;
+            
+            var drone11 = ctx.Drones.Add(new Drone()
+            {
+                Id = 11,
+                Details = "Another drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
+                Manufacturer = manufacturer1,
+                ProductName = "Inspire 2 Cinema Pro",
+                Price = 151499
+            }).Entity;
+            
+            var drone12 = ctx.Drones.Add(new Drone()
+            {
+                Id = 12,
+                Details = "Another drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
+                Manufacturer = manufacturer2,
+                ProductName = "Inspire 2 Professional",
+                Price = 52499
+            }).Entity;
+            
+            var drone13 = ctx.Drones.Add(new Drone()
+            {
+                Id = 13,
+                Details = "Super Nice drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
+                Manufacturer = manufacturer1,
+                ProductName = "Matrice 200",
+                Price = 22000
+            }).Entity;
+            
+            var drone14 = ctx.Drones.Add(new Drone()
+            {
+                Id = 14,
+                Details = "Ultra Nice drone",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/6/m600pro.jpg",
+                Manufacturer = manufacturer2,
+                ProductName = "Matrice 600",
+                Price = 32000
+            }).Entity;
 
             string password = "1234";
             _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);

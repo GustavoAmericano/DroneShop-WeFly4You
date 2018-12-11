@@ -16,9 +16,9 @@ namespace Droneshop.Core.ApplicationService.Services
             _droneRepo = repo;
         }
 
-        public List<Drone> GetAllDronesIncludeManufacturers()
+        public FilteredList<Drone> GetAllDronesIncludeManufacturers()
         {
-            return _droneRepo.GetAllDronesIncludeManufacturers().ToList();
+            return _droneRepo.GetAllDronesIncludeManufacturers();
         }
 
         public Drone Create(Drone drone)
@@ -36,13 +36,14 @@ namespace Droneshop.Core.ApplicationService.Services
             return _droneRepo.Delete(id);
         }
 
-        public List<Drone> GetAllDrones(Filter filter)
+        public FilteredList<Drone> GetAllDrones(Filter filter)
         {
             if(filter.ItemsPerPage < 0 || filter.CurrentPage < 0)
             {
                 throw new ArgumentException("The items per page and current page have to be positive numbers");
             }
-            return _droneRepo.GetAllDrones(filter).ToList();
+            
+                return _droneRepo.GetAllDrones(filter);
         }
 
         public Drone ReadById(int id)

@@ -21,7 +21,7 @@ namespace DroneShop.RestApi.Controllers
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<Drone>> Get([FromQuery]Filter filter)
+        public ActionResult<FilteredList<Drone>> Get([FromQuery]Filter filter)
         {
             try
             {
