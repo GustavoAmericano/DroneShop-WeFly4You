@@ -131,6 +131,13 @@ namespace Droneshop.Data
                 Email = "kristian.kristiansen@gmail.com"
             }).Entity;
 
+            var package1 = ctx.Packages.Add(new Package()
+            {
+                Id = 1,
+                description = "test",
+                price = "500"
+            }).Entity;
+
             ctx.SaveChanges();
         }
 
