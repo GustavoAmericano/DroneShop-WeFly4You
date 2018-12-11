@@ -1,5 +1,7 @@
 using Droneshop.Core.Entity;
 using Droneshop.Core.Helpers;
+using System;
+using System.Collections.Generic;
 
 namespace Droneshop.Data
 {
@@ -17,18 +19,20 @@ namespace Droneshop.Data
             ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
 
+
+
             var manufacturer1 = ctx.Manufacturers.Add(new Manufacturer()
             {
                 Id = 1,
                 Name = "DJI"
             }).Entity;
-            
+
             var manufacturer2 = ctx.Manufacturers.Add(new Manufacturer()
             {
                 Id = 2,
                 Name = "ADB"
             }).Entity;
-            
+
             var drone1 = ctx.Drones.Add(new Drone()
             {
                 Id = 1,
@@ -38,7 +42,7 @@ namespace Droneshop.Data
                 ProductName = "Phantom 4",
                 Price = 12000
             }).Entity;
-            
+
             var drone2 = ctx.Drones.Add(new Drone()
             {
                 Id = 2,
@@ -48,7 +52,7 @@ namespace Droneshop.Data
                 ProductName = "Matrice 200",
                 Price = 22000
             }).Entity;
-            
+
             var drone3 = ctx.Drones.Add(new Drone()
             {
                 Id = 3,
@@ -58,7 +62,7 @@ namespace Droneshop.Data
                 ProductName = "Matrice 600",
                 Price = 32000
             }).Entity;
-            
+
             var drone4 = ctx.Drones.Add(new Drone()
             {
                 Id = 4,
@@ -68,7 +72,7 @@ namespace Droneshop.Data
                 ProductName = "Mavic 2 Pro",
                 Price = 11499
             }).Entity;
-            
+
             var drone5 = ctx.Drones.Add(new Drone()
             {
                 Id = 5,
@@ -78,7 +82,7 @@ namespace Droneshop.Data
                 ProductName = "Inspire 2 Cinema Pro",
                 Price = 151499
             }).Entity;
-            
+
             var drone6 = ctx.Drones.Add(new Drone()
             {
                 Id = 6,
@@ -88,7 +92,7 @@ namespace Droneshop.Data
                 ProductName = "Inspire 2 Professional",
                 Price = 52499
             }).Entity;
-            
+
             var drone7 = ctx.Drones.Add(new Drone()
             {
                 Id = 7,
@@ -98,7 +102,7 @@ namespace Droneshop.Data
                 ProductName = "Phantom 4",
                 Price = 12000
             }).Entity;
-            
+
             var drone8 = ctx.Drones.Add(new Drone()
             {
                 Id = 8,
@@ -108,7 +112,7 @@ namespace Droneshop.Data
                 ProductName = "Phantom 4",
                 Price = 12000
             }).Entity;
-            
+
             var drone9 = ctx.Drones.Add(new Drone()
             {
                 Id = 9,
@@ -118,7 +122,7 @@ namespace Droneshop.Data
                 ProductName = "Phantom 4",
                 Price = 12000
             }).Entity;
-            
+
             var drone10 = ctx.Drones.Add(new Drone()
             {
                 Id = 10,
@@ -128,7 +132,7 @@ namespace Droneshop.Data
                 ProductName = "Mavic 2 Pro",
                 Price = 11499
             }).Entity;
-            
+
             var drone11 = ctx.Drones.Add(new Drone()
             {
                 Id = 11,
@@ -138,7 +142,7 @@ namespace Droneshop.Data
                 ProductName = "Inspire 2 Cinema Pro",
                 Price = 151499
             }).Entity;
-            
+
             var drone12 = ctx.Drones.Add(new Drone()
             {
                 Id = 12,
@@ -148,7 +152,7 @@ namespace Droneshop.Data
                 ProductName = "Inspire 2 Professional",
                 Price = 52499
             }).Entity;
-            
+
             var drone13 = ctx.Drones.Add(new Drone()
             {
                 Id = 13,
@@ -158,7 +162,7 @@ namespace Droneshop.Data
                 ProductName = "Matrice 200",
                 Price = 22000
             }).Entity;
-            
+
             var drone14 = ctx.Drones.Add(new Drone()
             {
                 Id = 14,
@@ -178,7 +182,7 @@ namespace Droneshop.Data
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 IsAdmin = true
-                
+
             }).Entity;
 
             var customer = ctx.Customers.Add(new Customer()
@@ -210,6 +214,42 @@ namespace Droneshop.Data
                 PhoneNumber = 12457612,
                 Email = "kristian.kristiansen@gmail.com"
             }).Entity;
+
+
+
+            var order1 = ctx.Orders.Add(new Order()
+            {
+                Id = 1,
+                OderDate = DateTime.Now,
+                Customer = customer,
+                OrderLines = new List<OrderLine>()
+                {
+                    new OrderLine()
+                    {
+                        DroneId = 1,
+                        Qty = 5,
+                        BoughtPrice = 500
+                    }
+                }
+            }).Entity;
+
+
+            var order2 = ctx.Orders.Add(new Order()
+            {
+                Id = 2,
+                OderDate = DateTime.Now,
+                Customer = customer2,
+                OrderLines = new List<OrderLine>()
+                {
+                    new OrderLine()
+                    {
+                        DroneId = 2,
+                        Qty = 5,
+                        BoughtPrice = 500
+                    }
+                }
+            }).Entity;
+
 
             ctx.SaveChanges();
         }

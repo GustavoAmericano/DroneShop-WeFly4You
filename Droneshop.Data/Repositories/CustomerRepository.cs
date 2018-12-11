@@ -22,7 +22,7 @@ namespace Droneshop.Data.Repositories
 
         public Customer ReadCustomerById(int id)
         {
-            return _ctx.Customers.FirstOrDefault(c => c.Id == id);
+            return _ctx.Customers.Include(c => c.Orders).FirstOrDefault(c => c.Id == id);
         }
 
         public Customer CreateCustomer(Customer customer)
