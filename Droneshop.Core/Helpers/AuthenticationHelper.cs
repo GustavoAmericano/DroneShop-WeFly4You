@@ -47,11 +47,11 @@ namespace Droneshop.Core.Helpers
         {
             var claims = new List<Claim>
             {
-                new Claim("userName", user.Username)
+                new Claim(ClaimTypes.Name, user.Username)
             };
 
             if (user.IsAdmin)
-                claims.Add(new Claim("role", "Administrator"));
+                claims.Add(new Claim(ClaimTypes.Role, "Administrator"));
 
             var token = new JwtSecurityToken(
                 new JwtHeader(new SigningCredentials(
