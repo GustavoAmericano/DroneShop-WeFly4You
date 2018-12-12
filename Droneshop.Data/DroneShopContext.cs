@@ -10,6 +10,14 @@ namespace Droneshop.Data
             
         }
         
+        public DbSet<Drone> Drones { get; set; }
+        public DbSet<Manufacturer> Manufacturers { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Package> Packages { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderLine> OrderLines { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

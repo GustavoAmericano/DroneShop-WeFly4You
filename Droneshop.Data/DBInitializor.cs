@@ -251,6 +251,12 @@ namespace Droneshop.Data
                 UserId = user4.Id
             }).Entity;
 
+            var package1 = ctx.Packages.Add(new Package()
+            {
+                Id = 1,
+                description = "test",
+                price = "500"
+            }).Entity;
 
             var order1 = ctx.Orders.Add(new Order()
             {
