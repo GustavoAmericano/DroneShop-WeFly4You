@@ -175,13 +175,43 @@ namespace Droneshop.Data
 
             string password = "1234";
             _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
-            var user = ctx.Users.Add(new User()
+            var admin = ctx.Users.Add(new User()
             {
                 Id = 1,
                 Username = "AdminAllan",
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 IsAdmin = true
+
+            }).Entity;
+            
+            var user2 = ctx.Users.Add(new User()
+            {
+                Id = 2,
+                Username = "User2",
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                IsAdmin = false
+
+            }).Entity;
+            
+            var user3 = ctx.Users.Add(new User()
+            {
+                Id = 3,
+                Username = "User3",
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                IsAdmin = false
+
+            }).Entity;
+            
+            var user4 = ctx.Users.Add(new User()
+            {
+                Id = 4,
+                Username = "User4",
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                IsAdmin = false
 
             }).Entity;
 
@@ -192,7 +222,9 @@ namespace Droneshop.Data
                 LastName = "Hansen",
                 Address = "Kongensgade 11",
                 PhoneNumber = 12345678,
-                Email = "hans.hansen@gmail.com"
+                Email = "hans.hansen@gmail.com",
+                User = user2,
+                UserId = user2.Id
             }).Entity;
 
             var customer2 = ctx.Customers.Add(new Customer()
@@ -202,7 +234,9 @@ namespace Droneshop.Data
                 LastName = "Mikkelsen",
                 Address = "Kongensgade 11",
                 PhoneNumber = 15748798,
-                Email = "mikkel.mikkelsen@gmail.com"
+                Email = "mikkel.mikkelsen@gmail.com",
+                User = user3,
+                UserId = user3.Id
             }).Entity;
 
             var customer3 = ctx.Customers.Add(new Customer()
@@ -212,9 +246,10 @@ namespace Droneshop.Data
                 LastName = "Kristiansen",
                 Address = "Kristiansgade 112",
                 PhoneNumber = 12457612,
-                Email = "kristian.kristiansen@gmail.com"
+                Email = "kristian.kristiansen@gmail.com",
+                User = user4,
+                UserId = user4.Id
             }).Entity;
-
 
 
             var order1 = ctx.Orders.Add(new Order()
