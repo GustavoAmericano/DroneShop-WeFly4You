@@ -42,25 +42,59 @@ namespace Droneshop.Data.Repositories
         {
             var filteredList = new FilteredList<Drone>();
 
-            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && filter.IsSortedDescendingByPrice)
+            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && filter.IsSortedDescendingByPrice && filter.ManufacturerId != 0)
             {
                 filteredList.List = _ctx.Drones
+                    .Include(d => d.Manufacturer)
+                    .Where(d => d.Manufacturer.Id == filter.ManufacturerId)
                     .OrderByDescending(drone => drone.Price)
                     .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
                     .Take(filter.ItemsPerPage);
-                filteredList.Count = _ctx.Drones.Count();
-                
+
+                filteredList.Count = _ctx.Drones
+                    .Include(d => d.Manufacturer)
+                    .Where(d => d.Manufacturer.Id == filter.ManufacturerId).Count();
+
                 return filteredList;
             }
             
-            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && !filter.IsSortedDescendingByPrice)
+            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && !filter.IsSortedDescendingByPrice && filter.ManufacturerId != 0)
+            {
+                filteredList.List = _ctx.Drones
+                    .Include(d => d.Manufacturer)
+                    .Where(d => d.Manufacturer.Id == filter.ManufacturerId)
+                    .OrderBy(drone => drone.Price)
+                    .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
+                    .Take(filter.ItemsPerPage);
+                
+                filteredList.Count = _ctx.Drones
+                    .Include(d => d.Manufacturer)
+                    .Where(d => d.Manufacturer.Id == filter.ManufacturerId).Count();
+                
+                return filteredList;
+            }
+
+            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && !filter.IsSortedDescendingByPrice && filter.ManufacturerId == 0)
             {
                 filteredList.List = _ctx.Drones
                     .OrderBy(drone => drone.Price)
                     .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
                     .Take(filter.ItemsPerPage);
+
                 filteredList.Count = _ctx.Drones.Count();
-                
+
+                return filteredList;
+            }
+
+            if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && filter.IsSortedDescendingByPrice && filter.ManufacturerId == 0)
+            {
+                filteredList.List = _ctx.Drones
+                    .OrderBy(drone => drone.Price)
+                    .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
+                    .Take(filter.ItemsPerPage);
+
+                filteredList.Count = _ctx.Drones.Count();
+
                 return filteredList;
             }
 

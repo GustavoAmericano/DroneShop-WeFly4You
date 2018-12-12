@@ -6,5 +6,6 @@ namespace Droneshop.Core.Entity
         public int ItemsPerPage { get; set; }
         public bool IncludeOtherEntity { get; set; }
         public bool IsSortedDescendingByPrice { get; set; }
+        public int ManufacturerId { get; set; }
     }
 }
