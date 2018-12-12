@@ -11,5 +11,6 @@ namespace Droneshop.Core.DomainService
         User Create(User user);
         User Update(User user);
         User Delete(int id);
+        Customer GetUsersCustomerInfo(string username);
     }
 }

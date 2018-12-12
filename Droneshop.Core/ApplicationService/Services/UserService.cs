@@ -78,5 +78,10 @@ namespace Droneshop.Core.ApplicationService.Services
             }
             return _userRepository.Delete(id);
         }
+
+        public Customer GetUsersCustomerInfo(string username)
+        {
+            return _userRepository.GetUsersCustomerInfo(username);
+        }
     }
 }

@@ -34,12 +34,12 @@ namespace DroneShop.RestApi.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<User> Get(int id)
+        [HttpGet("{username}")]
+        public ActionResult<Customer> Get(string username)
         {
             try
             {
-                return Ok(_userService.ReadUserById(id));
+                return Ok(_userService.GetUsersCustomerInfo(username));
 
             }
             catch (Exception e)

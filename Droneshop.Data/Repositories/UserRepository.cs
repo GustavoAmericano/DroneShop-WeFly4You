@@ -52,5 +52,10 @@ namespace Droneshop.Data.Repositories
             return user;
 
         }
+
+        public Customer GetUsersCustomerInfo(string username)
+        {
+            return _ctx.Customers.FirstOrDefault(c => c.User.Username == username);
+        }
     }
 }
