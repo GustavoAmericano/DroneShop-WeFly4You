@@ -42,7 +42,7 @@ namespace Droneshop.Core.Helpers
             }
             return true;
         }
-
+        //Legit denne kommentar er bare fordi git ikke virker
         public string GenerateToken(User user)
         {
             var claims = new List<Claim>
