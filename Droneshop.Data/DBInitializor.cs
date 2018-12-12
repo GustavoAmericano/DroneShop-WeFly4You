@@ -40,7 +40,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Phantom 4",
-                Price = 12000
+                Price = 12000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone2 = ctx.Drones.Add(new Drone()
@@ -50,7 +52,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
                 Manufacturer = manufacturer1,
                 ProductName = "Matrice 200",
-                Price = 22000
+                Price = 22000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone3 = ctx.Drones.Add(new Drone()
@@ -60,7 +64,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/6/m600pro.jpg",
                 Manufacturer = manufacturer2,
                 ProductName = "Matrice 600",
-                Price = 32000
+                Price = 32000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone4 = ctx.Drones.Add(new Drone()
@@ -70,7 +76,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Mavic 2 Pro",
-                Price = 11499
+                Price = 11499,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone5 = ctx.Drones.Add(new Drone()
@@ -80,7 +88,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Inspire 2 Cinema Pro",
-                Price = 151499
+                Price = 151499,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone6 = ctx.Drones.Add(new Drone()
@@ -90,7 +100,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
                 Manufacturer = manufacturer2,
                 ProductName = "Inspire 2 Professional",
-                Price = 52499
+                Price = 52499,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone7 = ctx.Drones.Add(new Drone()
@@ -100,7 +112,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Phantom 4",
-                Price = 12000
+                Price = 12000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone8 = ctx.Drones.Add(new Drone()
@@ -110,7 +124,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Phantom 4",
-                Price = 12000
+                Price = 12000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone9 = ctx.Drones.Add(new Drone()
@@ -120,7 +136,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Phantom 4",
-                Price = 12000
+                Price = 12000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone10 = ctx.Drones.Add(new Drone()
@@ -130,7 +148,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Mavic 2 Pro",
-                Price = 11499
+                Price = 11499,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone11 = ctx.Drones.Add(new Drone()
@@ -140,7 +160,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/a/large_e796da8a-a9c1-4dcb-b67e-dbc3c4acebfe.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Inspire 2 Cinema Pro",
-                Price = 151499
+                Price = 151499,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone12 = ctx.Drones.Add(new Drone()
@@ -150,7 +172,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
                 Manufacturer = manufacturer2,
                 ProductName = "Inspire 2 Professional",
-                Price = 52499
+                Price = 52499,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone13 = ctx.Drones.Add(new Drone()
@@ -160,7 +184,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/a/matrice-200.png",
                 Manufacturer = manufacturer1,
                 ProductName = "Matrice 200",
-                Price = 22000
+                Price = 22000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             var drone14 = ctx.Drones.Add(new Drone()
@@ -170,7 +196,9 @@ namespace Droneshop.Data
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/6/m600pro.jpg",
                 Manufacturer = manufacturer2,
                 ProductName = "Matrice 600",
-                Price = 32000
+                Price = 32000,
+                UserManualURL = "https://dl.djicdn.com/downloads/phantom_4/en/Phantom_4_User_Manual_en_v1.0.pdf"
+
             }).Entity;
 
             string password = "1234";

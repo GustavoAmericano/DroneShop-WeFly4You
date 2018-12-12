@@ -13,6 +13,7 @@ namespace Droneshop.Core.Entity
         public string Details { get; set; }
         public string ImageURL { get; set; }
         public List<OrderLine> OrderLines { get; set; }
+        public string UserManualURL { get; set; }
 
 
     }
