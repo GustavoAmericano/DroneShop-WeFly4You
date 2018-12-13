@@ -130,7 +130,7 @@ namespace Droneshop.Data
             var order1 = ctx.Orders.Add(new Order()
             {
                 Id = 1,
-                OderDate = DateTime.Now,
+                OrderDate = DateTime.Now,
                 Customer = customer1,
                 OrderLines = new List<OrderLine>()
                 {
@@ -147,7 +147,7 @@ namespace Droneshop.Data
             var order2 = ctx.Orders.Add(new Order()
             {
                 Id = 2,
-                OderDate = DateTime.Now,
+                OrderDate = DateTime.Now,
                 Customer = customer2,
                 OrderLines = new List<OrderLine>()
                 {
