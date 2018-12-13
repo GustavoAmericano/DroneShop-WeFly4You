@@ -9,11 +9,19 @@ namespace Droneshop.Data
         {
             
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> parent of 79df827... Revert "Merge branch 'DEV' into Checkout"
         public DbSet<Drone> Drones { get; set; }
         public DbSet<Manufacturer> Manufacturers { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
+<<<<<<< HEAD
+=======
+        public DbSet<Package> Packages { get; set; }
+>>>>>>> parent of 79df827... Revert "Merge branch 'DEV' into Checkout"
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderLine> OrderLines { get; set; }
 
