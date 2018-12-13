@@ -19,8 +19,6 @@ namespace Droneshop.Data
             ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
 
-
-
             var manufacturer1 = ctx.Manufacturers.Add(new Manufacturer()
             {
                 Id = 1,
@@ -255,6 +253,16 @@ namespace Droneshop.Data
                 UserId = user2.Id
             }).Entity;
 
+            var customer1 = ctx.Customers.Add(new Customer()
+            {
+                Id = 1,
+                FirstName = "cust1",
+                LastName = "cust1",
+                Address = "testVej1",
+                Email = "test@test.test",
+                PhoneNumber = 12345678
+            }).Entity;
+
             var customer2 = ctx.Customers.Add(new Customer()
             {
                 Id = 2,
@@ -313,6 +321,17 @@ namespace Droneshop.Data
                 }
             }).Entity;
 
+/*
+            var orderLine1 = ctx.OrderLines.Add(new OrderLine()
+            {
+                DroneId = 1,
+                Drone = drone1,
+                OrderId = 1,
+                Order = order1,
+                Qty = 2,
+                BoughtPrice = 2000
+                
+            }).Entity;*/
 
             ctx.SaveChanges();
         }

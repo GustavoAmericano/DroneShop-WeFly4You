@@ -36,7 +36,7 @@ namespace Droneshop.Data
             modelBuilder.Entity<OrderLine>().HasKey(ol => new { ol.DroneId, ol.OrderId });
             modelBuilder.Entity<OrderLine>().HasOne(ol => ol.Order).WithMany(o => o.OrderLines).HasForeignKey(ol => ol.OrderId);
             modelBuilder.Entity<OrderLine>().HasOne(ol => ol.Drone).WithMany(d => d.OrderLines).HasForeignKey(ol => ol.DroneId);
-                
+
         }
         
 

@@ -11,8 +11,8 @@ namespace Droneshop.Core.Entity
         public int PhoneNumber { get; set; }
         public string Email { get; set; }
         public List<Order> Orders { get; set; }
-
         public int UserId { get; set; }
         public User User { get; set; }
+
     }
 }

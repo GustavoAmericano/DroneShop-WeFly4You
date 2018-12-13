@@ -16,5 +16,6 @@ namespace Droneshop.Core.Entity
         public string UserManualURL { get; set; }
 
 
+
     }
 }
