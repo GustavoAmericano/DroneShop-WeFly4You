@@ -253,15 +253,7 @@ namespace Droneshop.Data
                 UserId = user2.Id
             }).Entity;
 
-            var customer1 = ctx.Customers.Add(new Customer()
-            {
-                Id = 1,
-                FirstName = "cust1",
-                LastName = "cust1",
-                Address = "testVej1",
-                Email = "test@test.test",
-                PhoneNumber = 12345678
-            }).Entity;
+            
 
             var customer2 = ctx.Customers.Add(new Customer()
             {
