@@ -67,10 +67,7 @@ namespace Droneshop.Core.ApplicationService.Services
 
         private void ValidateData(Order order)
         {
-            if (order.Id < 1)
-            {
-                throw new ArgumentException("The entered id has to be atleast 1");
-            }
+
 
             if (order.OrderDate == null)
             {
