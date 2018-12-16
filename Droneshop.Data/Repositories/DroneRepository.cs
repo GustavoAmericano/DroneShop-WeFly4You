@@ -77,6 +77,7 @@ namespace Droneshop.Data.Repositories
             if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && !filter.IsSortedDescendingByPrice && filter.ManufacturerId == 0)
             {
                 filteredList.List = _ctx.Drones
+                    .Include(d => d.Manufacturer)
                     .OrderBy(drone => drone.Price)
                     .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
                     .Take(filter.ItemsPerPage);
@@ -89,6 +90,7 @@ namespace Droneshop.Data.Repositories
             if (filter != null && filter.ItemsPerPage > 0 && filter.CurrentPage > 0 && filter.IsSortedDescendingByPrice && filter.ManufacturerId == 0)
             {
                 filteredList.List = _ctx.Drones
+                    .Include(d => d.Manufacturer)
                     .OrderBy(drone => drone.Price)
                     .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
                     .Take(filter.ItemsPerPage);
