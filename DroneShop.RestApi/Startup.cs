@@ -118,6 +118,16 @@ namespace DroneShop.RestApi
             }
             else
             {
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var services = scope.ServiceProvider;
+                    var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
+                    ctx.Database.EnsureCreated();
+
+                    var dbInitializor = services.GetService<IDBInitializor>();
+
+                    //dbInitializor.SeedDB(ctx);   
+                }
                 app.UseHsts();
             }
 
