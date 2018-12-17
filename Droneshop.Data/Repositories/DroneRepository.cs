@@ -91,7 +91,7 @@ namespace Droneshop.Data.Repositories
             {
                 filteredList.List = _ctx.Drones
                     .Include(d => d.Manufacturer)
-                    .OrderBy(drone => drone.Price)
+                    .OrderByDescending(drone => drone.Price)
                     .Skip((filter.CurrentPage - 1) * filter.ItemsPerPage)
                     .Take(filter.ItemsPerPage);
 
