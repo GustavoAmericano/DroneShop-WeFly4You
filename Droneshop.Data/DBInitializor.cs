@@ -255,30 +255,10 @@ namespace Droneshop.Data
 
             }).Entity;
             
-            var user2 = ctx.Users.Add(new User()
+            var user = ctx.Users.Add(new User()
             {
                 Id = 2,
                 Username = "User2",
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
-                IsAdmin = false
-
-            }).Entity;
-            
-            var user3 = ctx.Users.Add(new User()
-            {
-                Id = 3,
-                Username = "User3",
-                PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt,
-                IsAdmin = false
-
-            }).Entity;
-            
-            var user4 = ctx.Users.Add(new User()
-            {
-                Id = 4,
-                Username = "User4",
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 IsAdmin = false
@@ -293,34 +273,8 @@ namespace Droneshop.Data
                 Address = "Kongensgade 11",
                 PhoneNumber = 12345678,
                 Email = "hans.hansen@gmail.com",
-                User = user2,
-                UserId = user2.Id
-            }).Entity;
-
-            
-
-            var customer2 = ctx.Customers.Add(new Customer()
-            {
-                Id = 2,
-                FirstName = "Mikkel",
-                LastName = "Mikkelsen",
-                Address = "Kongensgade 11",
-                PhoneNumber = 15748798,
-                Email = "mikkel.mikkelsen@gmail.com",
-                User = user3,
-                UserId = user3.Id
-            }).Entity;
-
-            var customer3 = ctx.Customers.Add(new Customer()
-            {
-                Id = 3,
-                FirstName = "Kristian",
-                LastName = "Kristiansen",
-                Address = "Kristiansgade 112",
-                PhoneNumber = 12457612,
-                Email = "kristian.kristiansen@gmail.com",
-                User = user4,
-                UserId = user4.Id
+                User = user,
+                UserId = user.Id
             }).Entity;
 
             var package1 = ctx.Packages.Add(new Package()
@@ -393,7 +347,7 @@ namespace Droneshop.Data
             {
                 Id = 2,
                 OderDate = DateTime.Now,
-                Customer = customer2,
+                Customer = customer,
                 OrderLines = new List<OrderLine>()
                 {
                     new OrderLine()
