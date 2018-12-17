@@ -48,7 +48,7 @@ namespace Droneshop.Data
                 Id = 1,
                 Details = "DJI Spark er en mini-drone, der kun vejer 300 gram, men på trods af detteg har et 2-akset stabiliseret HD-kamera, anti-kollisionssensorer samt automatisk computerstyret flyvning, der kan genkende personer og objekter. \n"
                 + "DJI Spark har en masse spændende funktionaliteter, hvor du blandt andet kan styre dronen med håndfakter via Gesture mode, flyve over 60 km/t med Sport Mode eller få den ultimative FPV-oplevelse, kan der til DJI Spark tilkøbes DJI Goggles. \n"
-                + "DJI Sparken fås med en medfølgende beholder, hvor du nemt kan transportere dronen rundt. DJI Spark er dronen, som du altid kan have med på farten og flyve med uden de store udfordringer - og er perfekt til at holde din flyveegenskaber skarpe samtidig med, at du kan lave nogle imponerende optagelser (4K) og billeder (12MP) ved samme lejlighed."
+                + "DJI Sparken fås med en medfølgende beholder, hvor du nemt kan transportere dronen rundt. DJI Spark er dronen, som du altid kan have med på farten og flyve med uden de store udfordringer - og er perfekt til at holde din flyveegenskaber skarpe samtidig med, at du kan lave nogle imponerende optagelser (4K) og billeder (12MP) ved samme lejlighed.",
                 ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/j/dji-spark-alpine-white-front-3-4-1_1.jpg",
                 Manufacturer = manufacturer1,
                 ProductName = "Spark",
