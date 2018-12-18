@@ -32,7 +32,7 @@ namespace Droneshop.Data.Repositories
             var existingUser = _ctx.Users.FirstOrDefault(u => u.Username == user.Username);
             if (existingUser != null)
             {
-                throw new ArgumentException("The username" + user.Username + "is already taken");
+                throw new ArgumentException("The username " + user.Username + "is already taken");
             }
             _ctx.Users.Add(user);
             _ctx.SaveChanges();
