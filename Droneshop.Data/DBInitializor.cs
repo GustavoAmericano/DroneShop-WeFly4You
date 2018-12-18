@@ -16,7 +16,7 @@ namespace Droneshop.Data
 
         public void SeedDB(DroneShopContext ctx)
         {
-            ctx.Database.EnsureDeleted();
+            //ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
 
             var manufacturer1 = ctx.Manufacturers.Add(new Manufacturer()

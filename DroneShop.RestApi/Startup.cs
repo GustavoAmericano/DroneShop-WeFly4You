@@ -102,32 +102,22 @@ namespace DroneShop.RestApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
+                var dbInitializor = services.GetService<IDBInitializor>();
+
+                dbInitializor.SeedDB(ctx);
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                
-                using (var scope = app.ApplicationServices.CreateScope())
-                {
-                    var services = scope.ServiceProvider;
-                    var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
-                    var dbInitializor = services.GetService<IDBInitializor>();
-                    
-                    dbInitializor.SeedDB(ctx);
-                }
             }
             else
             {
-                using (var scope = app.ApplicationServices.CreateScope())
-                {
-                    var services = scope.ServiceProvider;
-                    var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
-                    ctx.Database.EnsureCreated();
-
-                    var dbInitializor = services.GetService<IDBInitializor>();
-
-                    //dbInitializor.SeedDB(ctx);   
-                }
                 app.UseHsts();
             }
 
