@@ -28,9 +28,8 @@ namespace DroneShop.RestApi
         private IConfiguration _conf { get; }
         private IHostingEnvironment _env { get; set; }
         
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IHostingEnvironment env)
         {
-
             _env = env;
             var builder = new ConfigurationBuilder()
             .SetBasePath(env.ContentRootPath)
@@ -102,27 +101,39 @@ namespace DroneShop.RestApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseAuthentication();
 
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
-                var dbInitializor = services.GetService<IDBInitializor>();
-
-                dbInitializor.SeedDB(ctx);
-            }
+            
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var services = scope.ServiceProvider;
+                    var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
+                    var dbInitializor = services.GetService<IDBInitializor>();
+
+                    dbInitializor.SeedDB(ctx);
+                }
             }
             else
             {
                 app.UseHsts();
+
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var services = scope.ServiceProvider;
+                    var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
+                    var dbInitializor = services.GetService<IDBInitializor>();
+                    ctx.Database.EnsureCreated();
+                    //dbInitializor.SeedDB(ctx);
+                }
             }
 
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-            app.UseAuthentication();
+            
             app.UseHttpsRedirection();
             app.UseMvc();
         }
