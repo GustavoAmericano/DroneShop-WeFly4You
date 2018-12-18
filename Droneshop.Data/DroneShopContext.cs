@@ -28,8 +28,7 @@ namespace Droneshop.Data
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Customer)
                 .WithOne(c => c.User)
-                .HasForeignKey<Customer>(c => c.UserId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey<Customer>(c => c.UserId);
                 
             
             modelBuilder.Entity<Order>().HasOne(o => o.Customer).WithMany(c => c.Orders).OnDelete(DeleteBehavior.SetNull);
