@@ -7,7 +7,8 @@ namespace Droneshop.Core.ApplicationService
 {
     public interface IDroneService
     {
-        List<Drone> getAllDrones();
+        FilteredList<Drone> GetAllDrones(Filter filter);
+        FilteredList<Drone> GetAllDronesIncludeManufacturers();
         Drone Create(Drone drone);
         Drone ReadById(int id);
         Drone Delete(int id);

@@ -7,7 +7,8 @@ namespace Droneshop.Core.DomainService
 {
     public interface IDroneRepository
     {
-        List<Drone> getAllDrones();
+        FilteredList<Drone> GetAllDrones(Filter filter = null);
+        FilteredList<Drone> GetAllDronesIncludeManufacturers();
         Drone Create(Drone drone);
         Drone ReadById(int id);
         Drone Delete(int id);

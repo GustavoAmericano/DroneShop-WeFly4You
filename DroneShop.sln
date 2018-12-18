@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{C3E86060-7087-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroneShop.RestApi", "DroneShop.RestApi\DroneShop.RestApi.csproj", "{A18AB633-4F92-4EC1-9665-251681DD6592}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCore", "TestCore\TestCore.csproj", "{D4448AB2-9F4C-408F-954C-582A66194AB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A18AB633-4F92-4EC1-9665-251681DD6592}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A18AB633-4F92-4EC1-9665-251681DD6592}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A18AB633-4F92-4EC1-9665-251681DD6592}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4448AB2-9F4C-408F-954C-582A66194AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4448AB2-9F4C-408F-954C-582A66194AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4448AB2-9F4C-408F-954C-582A66194AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4448AB2-9F4C-408F-954C-582A66194AB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
