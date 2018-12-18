@@ -151,7 +151,7 @@ namespace Droneshop.Data
             {
                 Id = 9,
                 Details = "DJI Phantom 4 RTK er designet til kravene for opmåling og kortlægning. Dronen er en kompakt løsning med et højopløsningskamera somgiver centimeter-nøjagtige RTK-data.",
-                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/4/p4r_light_front_v5_2.png",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_baada688-b74f-4bee-9a2d-9ff2e9782b7d_1.jpg",
                 Manufacturer = manufacturer2,
                 ProductName = "Phantom 4 RTK",
                 Price = 42499,
@@ -187,7 +187,7 @@ namespace Droneshop.Data
             {
                 Id = 12,
                 Details = "DJI Inspire 2 er en opgradering af DJIs revolutionerende DJI Inspire 1 og tilbyder blandt andet et nyt integreret billedebehandlingssystem som kan optage video i op til 5,2K i CinemaDNG RAW og Apple ProRes . Derudover har den en maks hastighed på 108 km/t (30m/s) og kan accellerere fra 0-80 km/h på kun 4 sekunder, hvilket er unikt for en drone på denne størrelse. Et dobbelt batterisystem giver en flyvetid på helt op til 27 minutter (med DJI Zenmuse X4S ) og den har en indbygget selvvarmende teknologi, som giver mulighed for at flyve i lave temperature.",
-                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_b2ece876-e7ab-440b-bf4e-025025d9e0a7.png",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/o/p/optimeret-dji-inspire-2.jpg",
                 Manufacturer = manufacturer3,
                 ProductName = "Inspire 2 Professional Combo",
                 Price = 52499,
@@ -199,7 +199,7 @@ namespace Droneshop.Data
             {
                 Id = 13,
                 Details = "DJI Inspire 2 er en opgradering af DJIs revolutionerende DJI Inspire 1 og tilbyder blandt andet et nyt integreret billedebehandlingssystem som kan optage video i op til 5,2K i CinemaDNG RAW og Apple ProRes . Derudover har den en maks hastighed på 108 km/t (30m/s) og kan accellerere fra 0-80 km/h på kun 4 sekunder, hvilket er unikt for en drone på denne størrelse. Et dobbelt batterisystem giver en flyvetid på helt op til 27 minutter (med DJI Zenmuse X4S ) og den har en indbygget selvvarmende teknologi, som giver mulighed for at flyve i lave temperature.",
-                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/medium_64178d3f-6dce-4c30-9d8d-d49a7cd53f82.png",
+                ImageURL = "https://droner.dk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/o/p/optimeret-dji-inspire-2.jpg",
                 Manufacturer = manufacturer3,
                 ProductName = "Inspire 2 Premium Combo",
                 Price = 106129,
