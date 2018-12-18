@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Droneshop.Core.DomainService;
@@ -28,6 +29,11 @@ namespace Droneshop.Data.Repositories
 
         public User Create(User user)
         {
+            var existingUser = _ctx.Users.FirstOrDefault(u => u.Username == user.Username);
+            if (existingUser != null)
+            {
+                throw new ArgumentException("The username" + user.Username + "is already taken");
+            }
             _ctx.Users.Add(user);
             _ctx.SaveChanges();
             return user;
