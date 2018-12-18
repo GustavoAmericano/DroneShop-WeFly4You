@@ -243,7 +243,7 @@ namespace Droneshop.Data
 
             }).Entity;
 
-            string password = "1234";
+            string password = "A1234567";
             _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
             var admin = ctx.Users.Add(new User()
             {

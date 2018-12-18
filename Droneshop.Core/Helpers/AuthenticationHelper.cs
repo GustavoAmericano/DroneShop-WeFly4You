@@ -16,16 +16,24 @@ namespace Droneshop.Core.Helpers
             secretBytes = secret;
         }
 
-        public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            if (string.IsNullOrEmpty(password))
-            {
+        public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt) {
+            if (string.IsNullOrEmpty(password)) {
                 throw new ArgumentException("A user must have a password");
             }
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinimum8Chars = new Regex(@".{8,}");
+
+            var isValidated = hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password);
+
+            if (isValidated) { 
+                using (var hmac = new System.Security.Cryptography.HMACSHA512()) {
+                    passwordSalt = hmac.Key;
+                    passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                }
+            }
+            else {
+                throw new ArgumentException("Password must contain 8 - 16 characters, one Upper case, one Lower case and a number");
             }
         }
 
@@ -42,7 +50,7 @@ namespace Droneshop.Core.Helpers
             }
             return true;
         }
-        //Legit denne kommentar er bare fordi git ikke virker
+
         public string GenerateToken(User user)
         {
             var claims = new List<Claim>
