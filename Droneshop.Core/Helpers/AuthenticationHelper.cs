@@ -60,7 +60,10 @@ namespace Droneshop.Core.Helpers
             };
 
             if (user.IsAdmin)
+            {
                 claims.Add(new Claim("role", "Administrator"));
+                claims.Add(new Claim(ClaimTypes.Role, "Administrator"));
+            }
 
             var token = new JwtSecurityToken(
                 new JwtHeader(new SigningCredentials(

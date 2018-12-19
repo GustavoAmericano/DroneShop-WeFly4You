@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Droneshop.Core.ApplicationService;
 using Droneshop.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DroneShop.RestApi.Controllers
@@ -52,6 +53,7 @@ namespace DroneShop.RestApi.Controllers
 
         // POST api/values
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public ActionResult<Drone> Post([FromBody] Drone drone)
         {
             try
@@ -67,6 +69,7 @@ namespace DroneShop.RestApi.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult<Drone> Put(int id, [FromBody] Drone drone)
         {
             try
@@ -84,6 +87,7 @@ namespace DroneShop.RestApi.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult<Drone> Delete(int id)
         {
             try

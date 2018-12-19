@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Droneshop.Core.ApplicationService;
 using Droneshop.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DroneShop.RestApi.Controllers
@@ -79,6 +80,7 @@ namespace DroneShop.RestApi.Controllers
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult<Customer> Delete(int id)
         {
             try

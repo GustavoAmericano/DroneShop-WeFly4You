@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Droneshop.Core.ApplicationService;
 using Droneshop.Core.Entity;
 using Droneshop.Core.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DroneShop.RestApi.Controllers
@@ -22,6 +23,7 @@ namespace DroneShop.RestApi.Controllers
 
 
         [HttpGet("{username}")]
+        [Authorize]
         public ActionResult<Customer> Get(string username)
         {
             try

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Droneshop.Core.ApplicationService.Services;
 using Droneshop.Core.DomainService;
 using Droneshop.Core.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DroneShop.RestApi.Controllers
@@ -52,6 +53,7 @@ namespace DroneShop.RestApi.Controllers
         }
         // Create package
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public ActionResult<Package> Post(Package package)
         {
             try
@@ -66,6 +68,7 @@ namespace DroneShop.RestApi.Controllers
         }
         // Update package
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult<Package> Put(int id, [FromBody] Package package)
         {
             try
@@ -81,6 +84,7 @@ namespace DroneShop.RestApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")]
         public ActionResult <Package> Delete(int id)
         {
             try
