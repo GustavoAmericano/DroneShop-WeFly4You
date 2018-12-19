@@ -101,7 +101,9 @@ namespace DroneShop.RestApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(builder => builder
+                .WithOrigins("https://wefly4you-dronewebshop.firebaseapp.com/").AllowAnyHeader().AllowAnyMethod()
+                .WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod());
             app.UseAuthentication();
 
             
