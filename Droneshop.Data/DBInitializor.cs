@@ -17,8 +17,8 @@ namespace Droneshop.Data
         public void SeedDB(DroneShopContext ctx)
         {
             //ctx.Database.EnsureDeleted();
-            ctx.Database.EnsureCreated();
-
+            //ctx.Database.EnsureCreated();
+            /*
             var manufacturer1 = ctx.Manufacturers.Add(new Manufacturer()
             {
                 Id = 1,
@@ -42,7 +42,7 @@ namespace Droneshop.Data
                 Id = 4,
                 Name = "AeroViron"
             }).Entity;
-            /*
+            
             var drone1 = ctx.Drones.Add(new Drone()
             {
                 Id = 1,
