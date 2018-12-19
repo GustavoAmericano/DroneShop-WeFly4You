@@ -42,7 +42,7 @@ namespace Droneshop.Data
                 Id = 4,
                 Name = "AeroViron"
             }).Entity;
-
+            /*
             var drone1 = ctx.Drones.Add(new Drone()
             {
                 Id = 1,
@@ -242,7 +242,7 @@ namespace Droneshop.Data
                 UserManualURL = "https://dl.djicdn.com/downloads/m600+pro/20170717/Matrice_600_Pro_User_Manual_v1.0_EN.pdf"
 
             }).Entity;
-            /*
+            
             string password = "1234";
             _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
             var admin = ctx.Users.Add(new User()
