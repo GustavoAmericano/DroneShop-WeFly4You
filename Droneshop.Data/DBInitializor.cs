@@ -16,9 +16,9 @@ namespace Droneshop.Data
 
         public void SeedDB(DroneShopContext ctx)
         {
-            //ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureDeleted();
             ctx.Database.EnsureCreated();
-            /*
+            
             var manufacturer1 = ctx.Manufacturers.Add(new Manufacturer()
             {
                 Id = 1,
@@ -242,7 +242,7 @@ namespace Droneshop.Data
                 UserManualURL = "https://dl.djicdn.com/downloads/m600+pro/20170717/Matrice_600_Pro_User_Manual_v1.0_EN.pdf"
 
             }).Entity;
-            */
+
             string password = "A1234567";
             _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
             var admin = ctx.Users.Add(new User()
@@ -254,7 +254,7 @@ namespace Droneshop.Data
                 IsAdmin = true
 
             }).Entity;
-            /*
+            
             var user = ctx.Users.Add(new User()
             {
                 Id = 2,
@@ -358,7 +358,7 @@ namespace Droneshop.Data
                     }
                 }
             }).Entity;
-            */
+
             ctx.SaveChanges();
         }
 
