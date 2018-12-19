@@ -358,7 +358,7 @@ namespace Droneshop.Data
                     }
                 }
             }).Entity;
-            */
+
             ctx.SaveChanges();
         }
 
