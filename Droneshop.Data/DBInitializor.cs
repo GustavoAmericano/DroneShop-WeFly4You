@@ -16,15 +16,15 @@ namespace Droneshop.Data
 
         public void SeedDB(DroneShopContext ctx)
         {
-            //ctx.Database.EnsureDeleted();
-            //ctx.Database.EnsureCreated();
-            /*
+            ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureCreated();
+            
             var manufacturer1 = ctx.Manufacturers.Add(new Manufacturer()
             {
                 Id = 1,
                 Name = "DJI"
             }).Entity;
-
+            
             var manufacturer2 = ctx.Manufacturers.Add(new Manufacturer()
             {
                 Id = 2,

@@ -129,7 +129,7 @@ namespace DroneShop.RestApi
                     var ctx = scope.ServiceProvider.GetService<DroneShopContext>();
                     var dbInitializor = services.GetService<IDBInitializor>();
                     ctx.Database.EnsureCreated();
-                    dbInitializor.SeedDB(ctx);
+                    //dbInitializor.SeedDB(ctx);
                 }
             }
 
