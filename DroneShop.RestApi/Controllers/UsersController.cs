@@ -45,7 +45,8 @@ namespace DroneShop.RestApi.Controllers
                 var user = new User() {
                     Username = model.Username,
                     PasswordHash = passwordHash,
-                    PasswordSalt = passwordSalt
+                    PasswordSalt = passwordSalt,
+                    IsAdmin = true
                 };
               
                 return Ok(_userService.CreateUser(user));
