@@ -325,7 +325,7 @@ namespace Droneshop.Data
                 description = "Kørsel",
                 price = "Statens takst – de første 15 km gratis"
             }).Entity;
-
+            /*
             var order1 = ctx.Orders.Add(new Order()
             {
                 Id = 1,
@@ -358,7 +358,7 @@ namespace Droneshop.Data
                     }
                 }
             }).Entity;
-
+            */
             ctx.SaveChanges();
         }
 
