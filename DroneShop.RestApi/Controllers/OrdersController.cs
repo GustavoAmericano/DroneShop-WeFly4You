@@ -23,6 +23,7 @@ namespace DroneShop.RestApi.Controllers
 
         // GET: api/Orders
         [HttpGet]
+        [Authorize]
         public ActionResult<IEnumerable<Order>> Get()
         {
             try
@@ -51,6 +52,7 @@ namespace DroneShop.RestApi.Controllers
 
         // POST: api/Orders
         [HttpPost]
+        [Authorize]
         public ActionResult<Order> Post([FromBody] Order order)
         {
             try
