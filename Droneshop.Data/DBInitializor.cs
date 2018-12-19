@@ -242,7 +242,7 @@ namespace Droneshop.Data
                 UserManualURL = "https://dl.djicdn.com/downloads/m600+pro/20170717/Matrice_600_Pro_User_Manual_v1.0_EN.pdf"
 
             }).Entity;
-
+            /*
             string password = "1234";
             _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
             var admin = ctx.Users.Add(new User()
@@ -325,7 +325,7 @@ namespace Droneshop.Data
                 description = "Kørsel",
                 price = "Statens takst – de første 15 km gratis"
             }).Entity;
-            /*
+            
             var order1 = ctx.Orders.Add(new Order()
             {
                 Id = 1,
