@@ -242,7 +242,7 @@ namespace Droneshop.Data
                 UserManualURL = "https://dl.djicdn.com/downloads/m600+pro/20170717/Matrice_600_Pro_User_Manual_v1.0_EN.pdf"
 
             }).Entity;
-            
+
             string password = "A1234567";
             _authenticationHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
             var admin = ctx.Users.Add(new User()
