@@ -102,7 +102,7 @@ namespace DroneShop.RestApi
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseCors(builder => builder
-                .WithOrigins("https://wefly4you-dronewebshop.firebaseapp.com/").AllowAnyHeader().AllowAnyMethod()
+                .WithOrigins("https://wefly4you-dronewebshop.firebaseapp.com").AllowAnyHeader().AllowAnyMethod()
                 .WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod());
             app.UseAuthentication();
 
